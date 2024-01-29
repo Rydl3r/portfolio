@@ -13,13 +13,13 @@ const ScrollToTop = () => {
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
-  return isVisible ? (
-    <div className='scroll-top'>
+  return (
+    <div className={`scroll-top ${isVisible ? 'visible' : ''}`}>
       <a href='#top'>
         <ArrowUpwardIcon fontSize='large' />
       </a>
     </div>
-  ) : null;
+  );
 };
 
 export default ScrollToTop;

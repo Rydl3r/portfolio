@@ -2,7 +2,15 @@
   position: fixed;
   bottom: 2em;
   right: 4em;
-  background-color: transparent;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.1s ease-in-out;
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 @media (max-width: 900px) {
