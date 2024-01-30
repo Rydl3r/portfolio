@@ -16,51 +16,56 @@ const about = {
 
 const projects = [
   {
-    name: 'SocR - Social Media',
-    description:
-      'A social media react app made using a full range of modern technologies. A lot of features and just a fun place to explore.',
-    stack: ['React', 'Redux', 'Firebase', 'React Router', 'Material UI'],
-    sourceCode: 'https://github.com/Rydl3r/socr',
-    livePreview: 'https://socr.vercel.app/',
+    name: 'Uspacy',
+    description: 'Communication, collaboration and CRM. All-in-one.',
+    stack: [
+      'React',
+      'Typescript',
+      'Redux',
+      'React Router',
+      'MUI',
+      'Webpack ModuleFederationPlugin',
+    ],
+    livePreview: 'https://uspacy.com/',
   },
   {
-    name: 'Movies Database',
+    name: 'Feodal',
     description:
-      'Movies database made with React, React Router, Firebase and TMDB API. You can add movies to your watchlist and get info about them',
-    stack: ['React', 'Firebase', 'React Router'],
-    sourceCode: 'https://github.com/Rydl3r/movies-db',
-    livePreview: 'https://movies-db-green.vercel.app/',
+      'Feodal.Online — automated audit of land plots, visualization, land bank monitoring and obtaining information from DZK and DRRP registers in one user window.',
+    stack: ['React', 'Firebase', 'React Router', 'Tailwind'],
+    livePreview: 'https://feodal.online/',
   },
   {
-    name: 'Recreate Ukraine',
+    name: 'Car Hub',
     description:
-      'This is an open-call to the architects, artists and designers of the world. Help us reimagine the future of Ukraine after the war is over.',
-    stack: ['React', 'React Router'],
-    livePreview: 'https://recreateua.com/',
+      'Cars catalogue app, where you can find a car for your needs and budget',
+    stack: ['Next', 'HeadlessUI', 'Tailwind', 'Cars API'],
+    sourceCode: 'https://github.com/Rydl3r/car-hub',
+    livePreview: 'https://car-hub-three-psi.vercel.app/',
   },
   {
-    name: 'Weather App',
+    name: 'Rayal Park',
     description:
-      'Weather App made with React. You can get weather info for any city in the world',
-    stack: ['React', 'OpenWeather API'],
-    sourceCode: 'https://github.com/Rydl3r/weather-app',
-    livePreview: 'https://weather-app-pi-nine.vercel.app/',
-  },
-  {
-    name: 'Rick and Morty database',
-    description:
-      'Complete Rick and Morty database, including characters, episodes, locations and a personal watchlist',
-    stack: ['React', 'Typescript', 'Material UI', 'Rick And Morty API'],
-    sourceCode: 'https://github.com/Rydl3r/rick-and-morty-database',
-    livePreview: 'https://rick-and-morty-database-azure.vercel.app/',
-  },
-  {
-    name: 'Rock, Paper, Scissors',
-    description:
-      'A classic, fun rock, paper, scissors game made with pure HTML, CSS, JS',
+      'A simple hotel landing page with a collection of information about the hotel, rooms, and services.',
     stack: ['HTML', 'CSS', 'JS'],
-    sourceCode: 'https://github.com/Rydl3r/rock-paper-scissors',
-    livePreview: 'https://rock-paper-scissors-indol-mu.vercel.app/',
+    sourceCode: 'https://github.com/Rydl3r/Rayal-Park',
+    livePreview: 'https://rayal-park-ten.vercel.app/',
+  },
+  {
+    name: 'Travel Hub',
+    description:
+      'A travel app website that allows you to find the best places to travel to.',
+    stack: ['HTML', 'CSS', 'JS'],
+    sourceCode: 'https://github.com/Rydl3r/Travel-Hub',
+    livePreview: 'https://travel-hub-six.vercel.app/',
+  },
+  {
+    name: 'Youtube clone',
+    description:
+      'A reimagination of Youtube with a focus on the overall UI and UX.',
+    stack: ['React', 'Youtube API', 'MUI'],
+    sourceCode: 'https://github.com/Rydl3r/youtube-clone',
+    livePreview: 'https://youtube-clone-xi-roan.vercel.app/',
   },
 ];
 
@@ -70,11 +75,13 @@ const skills = [
   'JavaScript',
   'TypeScript',
   'React',
-  'Next.js',
+  'Next',
   'Redux',
+  'Recoil',
   'MobX',
   'MUI',
   'Tailwind',
+  'HeadlessUI',
   'GraphQL',
   'Express',
   'Git',
