@@ -44,12 +44,12 @@ const projects = [
     livePreview: 'https://car-hub-three-psi.vercel.app/',
   },
   {
-    name: 'Rayal Park',
+    name: 'Questions poll',
     description:
-      'A simple hotel landing page with a collection of information about the hotel, rooms, and services.',
-    stack: ['HTML', 'CSS', 'JS'],
-    sourceCode: 'https://github.com/Rydl3r/Rayal-Park',
-    livePreview: 'https://rayal-park-ten.vercel.app/',
+      'A simple poll app where you can answer questions and see the results',
+    stack: ['Next', 'Typescript', 'Tailwind'],
+    sourceCode: 'https://github.com/Rydl3r/questions-poll',
+    livePreview: 'https://questions-poll.vercel.app/',
   },
   {
     name: 'Travel Hub',
