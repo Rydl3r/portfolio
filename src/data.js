@@ -29,6 +29,20 @@ const projects = [
     livePreview: 'https://uspacy.com/',
   },
   {
+    name: 'Resume builder',
+    description: 'AI powered resume builder',
+    stack: [
+      'Next',
+      'Typescript',
+      'Generative AI',
+      'PDF generation',
+      'Shadcn',
+      'PostgreSQL + Drizzle',
+    ],
+    sourceCode: 'https://github.com/Rydl3r/cvbuildai',
+    livePreview: 'https://cvbuildai.vercel.app/',
+  },
+  {
     name: 'Feodal',
     description:
       'Feodal.Online — automated audit of land plots, visualization, land bank monitoring and obtaining information from DZK and DRRP registers in one user window.',
@@ -66,6 +80,22 @@ const projects = [
     stack: ['React', 'Youtube API', 'MUI'],
     sourceCode: 'https://github.com/Rydl3r/youtube-clone',
     livePreview: 'https://youtube-clone-xi-roan.vercel.app/',
+  },
+  {
+    name: 'Resume builder - simple version',
+    description:
+      'A simple resume builder app that allows you to create a resume with a few clicks.',
+    stack: ['HTML', 'CSS', 'JS', 'JQuery'],
+    sourceCode: 'https://github.com/Rydl3r/resume-builder',
+    livePreview: 'https://resume-builder-zeta-drab.vercel.app/',
+  },
+  {
+    name: 'Rayal Park',
+    description:
+      'A simple hotel landing page with a collection of information about the hotel, rooms, and services.',
+    stack: ['HTML', 'CSS', 'JS'],
+    sourceCode: 'https://github.com/Rydl3r/Rayal-Park',
+    livePreview: 'https://rayal-park-ten.vercel.app/',
   },
 ];
 
