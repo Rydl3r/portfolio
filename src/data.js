@@ -1,3 +1,16 @@
+// Import images
+import profileImage from './assets/images/profile.jpeg';
+import globalLogicLogo from './assets/images/globallogic.png';
+import uspacyLogo from './assets/images/uspacy.png';
+import fastAndCuriousLogo from './assets/images/fast_and_curious.jpg';
+import upworkLogo from './assets/images/upwork.png';
+import rapiraThumbnail from './assets/images/rapira.png';
+import cvbuildaiThumbnail from './assets/images/cvbuildai.png';
+import uspacyThumbnail from './assets/images/uspacy.webp';
+import feodalThumbnail from './assets/images/feodal.png';
+import carHubThumbnail from './assets/images/car_hub.png';
+import youtubeThumbnail from './assets/images/youtube.png';
+
 const header = {
   homepage: '#',
   title: 'Ivan Mukoied',
@@ -19,6 +32,7 @@ const about = {
     linkedin: 'https://www.linkedin.com/in/rydler/',
     github: 'https://github.com/Rydl3r',
   },
+  profileImage: profileImage,
 };
 
 const experience = [
@@ -43,6 +57,7 @@ const experience = [
       'Implemented comprehensive testing with Jest and Cypress',
     ],
     technologies: ['React', 'TypeScript', 'Tanstack Query', 'Jest', 'Cypress'],
+    logo: globalLogicLogo,
   },
   {
     company: 'Uspacy',
@@ -57,6 +72,7 @@ const experience = [
       'Maintained 90%+ test coverage across all modules',
     ],
     technologies: ['React', 'Next.js', 'TypeScript', 'Redux', 'MUI', 'Module Federation'],
+    logo: uspacyLogo,
   },
   {
     company: 'Fast&Curious',
@@ -71,6 +87,7 @@ const experience = [
       'Delivered pixel-perfect mathematical calculations for land management',
     ],
     technologies: ['React', 'TypeScript', 'Mapbox', 'Firebase'],
+    logo: fastAndCuriousLogo,
   },
   {
     company: 'Freelance',
@@ -85,6 +102,7 @@ const experience = [
       'Achieved advanced English proficiency',
     ],
     technologies: ['React', 'JavaScript', 'HTML', 'CSS', 'Firebase'],
+    logo: upworkLogo,
   },
 ];
 
@@ -95,6 +113,7 @@ const projects = [
       'All-in-one business platform for communication, collaboration, and CRM. Served 100K+ users across Ukraine and internationally.',
     stack: ['React', 'TypeScript', 'Redux', 'MUI', 'Module Federation'],
     livePreview: 'https://uspacy.com/',
+    image: uspacyThumbnail,
   },
   {
     name: 'AI Resume Builder',
@@ -103,6 +122,7 @@ const projects = [
     stack: ['Next.js', 'TypeScript', 'Generative AI', 'Shadcn', 'PostgreSQL'],
     sourceCode: 'https://github.com/Rydl3r/cvbuildai',
     livePreview: 'https://cvbuildai.vercel.app/',
+    image: cvbuildaiThumbnail,
   },
   {
     name: 'Feodal',
@@ -110,6 +130,7 @@ const projects = [
       'Agricultural land management platform with automated audits, geospatial visualization, and real-time monitoring for Ukrainian farmers.',
     stack: ['React', 'Mapbox', 'Firebase', 'Tailwind'],
     livePreview: 'https://feodal.online/',
+    image: feodalThumbnail,
   },
   {
     name: 'Rapira',
@@ -117,6 +138,7 @@ const projects = [
       'E-commerce platform for professional nail service tools and accessories manufacturer.',
     stack: ['React', 'TypeScript', 'Firebase', 'Chakra UI'],
     livePreview: 'https://rapira.com.ua/',
+    image: rapiraThumbnail,
   },
   {
     name: 'Car Hub',
@@ -125,6 +147,7 @@ const projects = [
     stack: ['Next.js', 'HeadlessUI', 'Tailwind', 'Cars API'],
     sourceCode: 'https://github.com/Rydl3r/car-hub',
     livePreview: 'https://car-hub-three-psi.vercel.app/',
+    image: carHubThumbnail,
   },
   {
     name: 'YouTube Clone',
@@ -133,6 +156,7 @@ const projects = [
     stack: ['React', 'YouTube API', 'MUI'],
     sourceCode: 'https://github.com/Rydl3r/youtube-clone',
     livePreview: 'https://youtube-clone-xi-roan.vercel.app/',
+    image: youtubeThumbnail,
   },
 ];
 

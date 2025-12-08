@@ -6,12 +6,7 @@ const Footer = () => (
     <div className={styles.container}>
       <p className={styles.text}>
         Designed & Built by{' '}
-        <a
-          href={footer.github}
-          target="_blank"
-          rel="noreferrer"
-          className={styles.link}
-        >
+        <a href={footer.github} target="_blank" rel="noreferrer" className={styles.link}>
           {footer.author}
         </a>
       </p>

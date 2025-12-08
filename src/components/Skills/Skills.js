@@ -34,7 +34,7 @@ const Skills = () => {
                   <li
                     key={skillIdx}
                     className={`${styles.item} ${styles[levelLabels[skill.level]?.className] || ''}`}
-                    style={{ animationDelay: `${(catIdx * 0.1) + (skillIdx * 0.03)}s` }}
+                    style={{ animationDelay: `${catIdx * 0.1 + skillIdx * 0.03}s` }}
                   >
                     {skill.name}
                   </li>

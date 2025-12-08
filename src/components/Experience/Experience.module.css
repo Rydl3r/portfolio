@@ -79,14 +79,61 @@
 /* Card */
 .card {
   padding: var(--space-xl);
+  padding-right: 100px;
   transition: all var(--transition-base);
   text-align: left;
+  position: relative;
 }
 
 .card:hover {
   transform: translateY(-4px);
   border-color: rgba(16, 185, 129, 0.3);
   box-shadow: var(--shadow-glow);
+}
+
+/* Company Logo */
+.logoWrapper {
+  position: absolute;
+  top: var(--space-xl);
+  right: var(--space-xl);
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--glass-border);
+  transition: all var(--transition-base);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover .logoWrapper {
+  border-color: rgba(16, 185, 129, 0.3);
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.1);
+  transform: translateY(-2px);
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logoPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+}
+
+.logoIcon {
+  font-size: 28px !important;
+  color: var(--clr-primary);
+  opacity: 0.5;
 }
 
 /* Header */
@@ -96,6 +143,7 @@
 
 .companyInfo {
   margin-bottom: var(--space-sm);
+  max-width: calc(100% - 80px);
 }
 
 .company {
@@ -197,6 +245,22 @@
 
   .card {
     padding: var(--space-lg);
+    padding-right: 84px;
+  }
+
+  .logoWrapper {
+    width: 52px;
+    height: 52px;
+    top: var(--space-lg);
+    right: var(--space-lg);
+  }
+
+  .logo {
+    padding: 8px;
+  }
+
+  .companyInfo {
+    max-width: 100%;
   }
 }
 
@@ -222,6 +286,29 @@
   .meta {
     flex-direction: column;
     gap: var(--space-xs);
+  }
+
+  .card {
+    padding: var(--space-md);
+    padding-right: var(--space-md);
+  }
+
+  .logoWrapper {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    top: 0;
+    right: 0;
+    margin-bottom: var(--space-md);
+    border-radius: 10px;
+  }
+
+  .logo {
+    padding: 6px;
+  }
+
+  .companyInfo {
+    max-width: 100%;
   }
 }
 

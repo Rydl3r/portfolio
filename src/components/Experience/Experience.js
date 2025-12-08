@@ -1,5 +1,6 @@
 import WorkIcon from '@mui/icons-material/Work';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import BusinessIcon from '@mui/icons-material/Business';
 import { experience } from '../../data';
 import SectionHeader from '../SectionHeader/SectionHeader';
 import TechPillList from '../TechPillList/TechPillList';
@@ -21,6 +22,17 @@ const Experience = () => {
             style={{ animationDelay: `${idx * 0.15}s` }}
           >
             <div className={`${styles.card} glass-card`}>
+              {/* Company Logo */}
+              <div className={styles.logoWrapper}>
+                {job.logo ? (
+                  <img src={job.logo} alt={job.company} className={styles.logo} />
+                ) : (
+                  <div className={styles.logoPlaceholder}>
+                    <BusinessIcon className={styles.logoIcon} />
+                  </div>
+                )}
+              </div>
+
               <div className={styles.header}>
                 <div className={styles.companyInfo}>
                   <h3 className={styles.company}>{job.company}</h3>

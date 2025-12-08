@@ -3,6 +3,40 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Background decorative patterns */
+.app::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Subtle grid pattern */
+.app::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+  background-size: 100px 100px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.3;
 }
 
 /* Main Content */
@@ -12,12 +46,32 @@ main {
   margin: 0 auto;
   padding: 0 var(--container-padding);
   flex: 1;
+  position: relative;
+  z-index: 1;
 }
 
 /* Section Styles */
 .section {
   padding: var(--space-4xl) 0;
   position: relative;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+.section:nth-child(even)::before {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.03) 0%, transparent 70%);
 }
 
 .section__title {
@@ -240,11 +294,11 @@ main {
   :root {
     --container-padding: 1rem;
   }
-  
+
   .section {
     padding: var(--space-3xl) 0;
   }
-  
+
   .section__title {
     margin-bottom: var(--space-2xl);
   }
@@ -254,7 +308,7 @@ main {
   html {
     font-size: 14px;
   }
-  
+
   .section {
     padding: var(--space-2xl) 0;
   }
@@ -295,5 +349,3 @@ main {
     transform: rotate(360deg);
   }
 }
-
-

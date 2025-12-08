@@ -8,19 +8,12 @@ const Contact = () => {
     <section className={`section ${styles.contact}`} id="contact">
       <div className={styles.container}>
         <div className={`${styles.content} glass-card`}>
-          <h2 className={styles.title}>
-            {contact.headline || "Let's Connect"}
-          </h2>
-          
-          <p className={styles.description}>
-            {contact.description}
-          </p>
+          <h2 className={styles.title}>{contact.headline || "Let's Connect"}</h2>
+
+          <p className={styles.description}>{contact.description}</p>
 
           <div className={styles.actions}>
-            <a
-              href={`mailto:${contact.email}`}
-              className={`btn btn--primary ${styles.emailBtn}`}
-            >
+            <a href={`mailto:${contact.email}`} className={`btn btn--primary ${styles.emailBtn}`}>
               <EmailIcon />
               Say Hello
             </a>

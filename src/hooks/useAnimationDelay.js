@@ -8,9 +8,12 @@ import { useMemo } from 'react';
  * @returns {Object} - Style object with animationDelay
  */
 const useAnimationDelay = (index, baseDelay = 0.1, categoryIndex = 0) => {
-  const style = useMemo(() => ({
-    animationDelay: `${(categoryIndex * baseDelay) + (index * baseDelay)}s`
-  }), [index, baseDelay, categoryIndex]);
+  const style = useMemo(
+    () => ({
+      animationDelay: `${categoryIndex * baseDelay + index * baseDelay}s`,
+    }),
+    [index, baseDelay, categoryIndex]
+  );
 
   return style;
 };
