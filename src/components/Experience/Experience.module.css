@@ -161,8 +161,8 @@
 
 .meta {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-md);
+  flex-direction: column;
+  gap: var(--space-sm);
   color: var(--clr-fg-alt);
   font-size: 0.85rem;
 }

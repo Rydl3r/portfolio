@@ -36,7 +36,6 @@ const Experience = () => {
               <div className={styles.header}>
                 <div className={styles.companyInfo}>
                   <h3 className={styles.company}>{job.company}</h3>
-                  <span className={styles.role}>{job.role}</span>
                 </div>
                 <div className={styles.meta}>
                   <span className={styles.period}>

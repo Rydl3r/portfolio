@@ -1,7 +1,7 @@
 // Import images
 import profileImage from './assets/images/profile.jpeg';
 import globalLogicLogo from './assets/images/globallogic.png';
-import uspacyLogo from './assets/images/uspacy.png';
+import uspacyLogo from './assets/images/uspacy.jpeg';
 import fastAndCuriousLogo from './assets/images/fast_and_curious.jpg';
 import upworkLogo from './assets/images/upwork.png';
 import rapiraThumbnail from './assets/images/rapira.png';
@@ -38,7 +38,6 @@ const about = {
 const experience = [
   {
     company: 'HumanSpark',
-    role: 'Frontend Developer',
     period: 'Sep 2025 - Present',
     location: 'Cyprus',
     description: 'Building innovative solutions with modern frontend technologies.',
@@ -46,7 +45,6 @@ const experience = [
   },
   {
     company: 'GlobalLogic',
-    role: 'Frontend Developer',
     period: 'Apr 2024 - Sep 2025',
     location: 'Kyiv, Ukraine',
     description:
@@ -61,7 +59,6 @@ const experience = [
   },
   {
     company: 'Uspacy',
-    role: 'Frontend Developer',
     period: 'Sep 2022 - Apr 2024',
     location: 'Ukraine',
     description:
@@ -76,7 +73,6 @@ const experience = [
   },
   {
     company: 'Fast&Curious',
-    role: 'Frontend Developer',
     period: 'Jan 2022 - Jul 2022',
     location: 'Kyiv, Ukraine',
     description:
@@ -91,7 +87,6 @@ const experience = [
   },
   {
     company: 'Freelance',
-    role: 'Web Developer',
     period: 'Jun 2019 - Feb 2021',
     location: 'Remote',
     description:
