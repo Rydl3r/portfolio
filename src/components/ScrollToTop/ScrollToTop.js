@@ -1,17 +1,9 @@
-import { useEffect, useState } from 'react';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import './ScrollToTop.css';
+import { useScrollVisibility } from '../../hooks';
+import styles from './ScrollToTop.module.css';
 
 const ScrollToTop = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const toggleVisibility = () =>
-      window.scrollY > 500 ? setIsVisible(true) : setIsVisible(false);
-
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
-  }, []);
+  const isVisible = useScrollVisibility(500);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -24,7 +16,7 @@ const ScrollToTop = () => {
     <button
       type="button"
       onClick={scrollToTop}
-      className={`scroll-top ${isVisible ? 'scroll-top--visible' : ''}`}
+      className={`${styles.scrollTop} ${isVisible ? styles.visible : ''}`}
       aria-label="scroll to top"
     >
       <ArrowUpwardIcon />

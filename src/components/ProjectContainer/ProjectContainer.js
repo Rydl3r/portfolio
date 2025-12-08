@@ -1,32 +1,28 @@
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchIcon from '@mui/icons-material/Launch';
-import './ProjectContainer.css';
+import PropTypes from 'prop-types';
+import TechPillList from '../TechPillList/TechPillList';
+import styles from './ProjectContainer.module.css';
 
 const ProjectContainer = ({ project, featured, index }) => (
   <article
-    className={`project glass-card ${featured ? 'project--featured' : ''}`}
+    className={`${styles.project} glass-card ${featured ? styles.featured : ''}`}
     style={{ animationDelay: `${index * 0.1}s` }}
   >
-    <div className="project__content">
-      <div className="project__header">
-        <h3 className="project__name">{project.name}</h3>
-        {featured && <span className="project__badge">Featured</span>}
+    <div className={styles.content}>
+      <div className={styles.header}>
+        <h3 className={styles.name}>{project.name}</h3>
+        {featured && <span className={styles.badge}>Featured</span>}
       </div>
 
-      <p className="project__description">{project.description}</p>
+      <p className={styles.description}>{project.description}</p>
 
       {project.stack && (
-        <ul className="project__stack">
-          {project.stack.map((item, idx) => (
-            <li key={idx} className="pill">
-              {item}
-            </li>
-          ))}
-        </ul>
+        <TechPillList items={project.stack} className={styles.stack} />
       )}
     </div>
 
-    <div className="project__links">
+    <div className={styles.links}>
       {project.sourceCode && (
         <a
           href={project.sourceCode}
@@ -52,8 +48,20 @@ const ProjectContainer = ({ project, featured, index }) => (
       )}
     </div>
 
-    <div className="project__glow"></div>
+    <div className={styles.glow}></div>
   </article>
 );
+
+ProjectContainer.propTypes = {
+  project: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    stack: PropTypes.arrayOf(PropTypes.string),
+    sourceCode: PropTypes.string,
+    livePreview: PropTypes.string,
+  }).isRequired,
+  featured: PropTypes.bool,
+  index: PropTypes.number,
+};
 
 export default ProjectContainer;

@@ -1,12 +1,22 @@
+import { lazy, Suspense } from 'react';
 import Header from './components/Header/Header';
 import About from './components/About/About';
-import Experience from './components/Experience/Experience';
-import Projects from './components/Projects/Projects';
-import Skills from './components/Skills/Skills';
-import Contact from './components/Contact/Contact';
-import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import Footer from './components/Footer/Footer';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import './App.css';
+
+// Lazy load below-the-fold sections
+const Experience = lazy(() => import('./components/Experience/Experience'));
+const Projects = lazy(() => import('./components/Projects/Projects'));
+const Skills = lazy(() => import('./components/Skills/Skills'));
+const Contact = lazy(() => import('./components/Contact/Contact'));
+
+// Loading fallback component
+const SectionLoader = () => (
+  <div className="section-loader">
+    <div className="section-loader__spinner"></div>
+  </div>
+);
 
 const App = () => {
   return (
@@ -15,10 +25,12 @@ const App = () => {
 
       <main>
         <About />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Contact />
+        <Suspense fallback={<SectionLoader />}>
+          <Experience />
+          <Projects />
+          <Skills />
+          <Contact />
+        </Suspense>
       </main>
 
       <ScrollToTop />

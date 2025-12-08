@@ -1,4 +1,4 @@
-.skills__legend {
+.legend {
   display: flex;
   justify-content: center;
   gap: var(--space-xl);
@@ -6,7 +6,7 @@
   flex-wrap: wrap;
 }
 
-.skills__legend-item {
+.legendItem {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
@@ -14,27 +14,27 @@
   color: var(--clr-fg-alt);
 }
 
-.skills__legend-item::before {
+.legendItem::before {
   content: '';
   width: 12px;
   height: 12px;
   border-radius: 50%;
 }
 
-.skills__legend-item--expert::before {
+.legendExpert::before {
   background: var(--clr-primary);
   box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
 }
 
-.skills__legend-item--proficient::before {
+.legendProficient::before {
   background: var(--clr-accent);
 }
 
-.skills__legend-item--familiar::before {
+.legendFamiliar::before {
   background: var(--clr-fg-muted);
 }
 
-.skills__container {
+.container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--space-xl);
@@ -42,19 +42,19 @@
   margin: 0 auto;
 }
 
-.skills__category {
+.category {
   padding: var(--space-xl);
   opacity: 0;
   animation: fadeInUp 0.6s ease forwards;
   transition: all var(--transition-base);
 }
 
-.skills__category:hover {
+.category:hover {
   transform: translateY(-4px);
   border-color: rgba(16, 185, 129, 0.3);
 }
 
-.skills__category-title {
+.categoryTitle {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
@@ -66,17 +66,17 @@
   border-bottom: 1px solid var(--glass-border);
 }
 
-.skills__category-icon {
+.categoryIcon {
   font-size: 1.1rem;
 }
 
-.skills__list {
+.list {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-sm);
 }
 
-.skills__item {
+.item {
   padding: var(--space-sm) var(--space-md);
   font-size: 0.85rem;
   font-weight: 500;
@@ -91,53 +91,64 @@
 }
 
 /* Expert level - green glow */
-.skills__level--expert {
+.levelExpert {
   border-color: rgba(16, 185, 129, 0.4);
   background: rgba(16, 185, 129, 0.1);
   color: var(--clr-primary-light);
 }
 
-.skills__level--expert:hover {
+.levelExpert:hover {
   border-color: var(--clr-primary);
   box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
   transform: translateY(-2px);
 }
 
 /* Proficient level - purple */
-.skills__level--proficient {
+.levelProficient {
   border-color: rgba(139, 92, 246, 0.3);
   background: rgba(139, 92, 246, 0.08);
   color: var(--clr-accent-light);
 }
 
-.skills__level--proficient:hover {
+.levelProficient:hover {
   border-color: var(--clr-accent);
   box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
   transform: translateY(-2px);
 }
 
 /* Familiar level - gray */
-.skills__level--familiar {
+.levelFamiliar {
   border-color: rgba(107, 114, 128, 0.3);
   background: rgba(107, 114, 128, 0.08);
   color: var(--clr-fg-alt);
 }
 
-.skills__level--familiar:hover {
+.levelFamiliar:hover {
   border-color: var(--clr-fg-muted);
   transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
-  .skills__container {
+  .container {
     grid-template-columns: 1fr;
   }
 
-  .skills__category {
+  .category {
     padding: var(--space-lg);
   }
 
-  .skills__legend {
+  .legend {
     gap: var(--space-lg);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

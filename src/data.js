@@ -27,8 +27,7 @@ const experience = [
     role: 'Frontend Developer',
     period: 'Sep 2025 - Present',
     location: 'Cyprus',
-    description:
-      'Building innovative solutions with modern frontend technologies.',
+    description: 'Building innovative solutions with modern frontend technologies.',
     technologies: ['React', 'TypeScript', 'Next.js'],
   },
   {
@@ -92,39 +91,45 @@ const experience = [
 const projects = [
   {
     name: 'Uspacy',
-    description: 'All-in-one business platform for communication, collaboration, and CRM. Served 100K+ users across Ukraine and internationally.',
+    description:
+      'All-in-one business platform for communication, collaboration, and CRM. Served 100K+ users across Ukraine and internationally.',
     stack: ['React', 'TypeScript', 'Redux', 'MUI', 'Module Federation'],
     livePreview: 'https://uspacy.com/',
   },
   {
     name: 'AI Resume Builder',
-    description: 'AI-powered resume builder that helps create professional resumes with intelligent content suggestions and PDF export.',
+    description:
+      'AI-powered resume builder that helps create professional resumes with intelligent content suggestions and PDF export.',
     stack: ['Next.js', 'TypeScript', 'Generative AI', 'Shadcn', 'PostgreSQL'],
     sourceCode: 'https://github.com/Rydl3r/cvbuildai',
     livePreview: 'https://cvbuildai.vercel.app/',
   },
   {
     name: 'Feodal',
-    description: 'Agricultural land management platform with automated audits, geospatial visualization, and real-time monitoring for Ukrainian farmers.',
+    description:
+      'Agricultural land management platform with automated audits, geospatial visualization, and real-time monitoring for Ukrainian farmers.',
     stack: ['React', 'Mapbox', 'Firebase', 'Tailwind'],
     livePreview: 'https://feodal.online/',
   },
   {
     name: 'Rapira',
-    description: 'E-commerce platform for professional nail service tools and accessories manufacturer.',
+    description:
+      'E-commerce platform for professional nail service tools and accessories manufacturer.',
     stack: ['React', 'TypeScript', 'Firebase', 'Chakra UI'],
     livePreview: 'https://rapira.com.ua/',
   },
   {
     name: 'Car Hub',
-    description: 'Cars catalogue app with advanced filtering to find vehicles matching your needs and budget.',
+    description:
+      'Cars catalogue app with advanced filtering to find vehicles matching your needs and budget.',
     stack: ['Next.js', 'HeadlessUI', 'Tailwind', 'Cars API'],
     sourceCode: 'https://github.com/Rydl3r/car-hub',
     livePreview: 'https://car-hub-three-psi.vercel.app/',
   },
   {
     name: 'YouTube Clone',
-    description: 'A reimagination of YouTube with focus on modern UI/UX patterns and responsive design.',
+    description:
+      'A reimagination of YouTube with focus on modern UI/UX patterns and responsive design.',
     stack: ['React', 'YouTube API', 'MUI'],
     sourceCode: 'https://github.com/Rydl3r/youtube-clone',
     livePreview: 'https://youtube-clone-xi-roan.vercel.app/',
@@ -185,7 +190,46 @@ const skills = {
 const contact = {
   email: '1rydler@gmail.com',
   headline: "Let's build something awesome together",
-  description: "Always up for connecting with fellow developers, discussing the latest in frontend tech, or debating whether CSS-in-JS is the future or just a phase we're going through.",
+  description:
+    "Always up for connecting with fellow developers, discussing the latest in frontend tech, or debating whether CSS-in-JS is the future or just a phase we're going through.",
 };
 
-export { header, about, experience, projects, skills, contact };
+const navItems = [
+  { id: 'experience', label: 'Experience', condition: () => experience?.length > 0 },
+  { id: 'projects', label: 'Projects', condition: () => projects?.length > 0 },
+  { id: 'skills', label: 'Skills', condition: () => !!skills },
+  { id: 'contact', label: 'Contact', condition: () => !!contact?.email, isCta: true },
+];
+
+const skillCategories = [
+  { key: 'core', title: 'Core Technologies', icon: '⚛️' },
+  { key: 'stateManagement', title: 'State Management', icon: '🔄' },
+  { key: 'styling', title: 'UI & Styling', icon: '🎨' },
+  { key: 'testing', title: 'Testing', icon: '🧪' },
+  { key: 'tools', title: 'Tools & DevOps', icon: '🛠️' },
+  { key: 'bestPractices', title: 'Best Practices', icon: '✨' },
+];
+
+const levelLabels = {
+  expert: { label: 'Expert', className: 'levelExpert' },
+  proficient: { label: 'Proficient', className: 'levelProficient' },
+  familiar: { label: 'Familiar', className: 'levelFamiliar' },
+};
+
+const footer = {
+  author: about.name,
+  github: about.social.github,
+};
+
+export {
+  header,
+  about,
+  experience,
+  projects,
+  skills,
+  contact,
+  navItems,
+  skillCategories,
+  levelLabels,
+  footer,
+};

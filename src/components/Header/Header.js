@@ -1,14 +1,14 @@
 import { header } from '../../data';
 import Navbar from '../Navbar/Navbar';
-import './Header.css';
+import styles from './Header.module.css';
 
 const Header = () => {
   const { title } = header;
 
   return (
-    <header className="header">
-      <div className="header__container">
-        <a href="#about" className="header__logo">
+    <header className={styles.header}>
+      <div className={styles.container}>
+        <a href="#about" className={styles.logo}>
           {title}
         </a>
         <Navbar />

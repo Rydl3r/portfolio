@@ -2,20 +2,20 @@
   padding-bottom: var(--space-4xl);
 }
 
-.contact__container {
+.container {
   position: relative;
   max-width: 700px;
   margin: 0 auto;
 }
 
-.contact__content {
+.content {
   position: relative;
   padding: var(--space-3xl);
   text-align: center;
   z-index: 1;
 }
 
-.contact__title {
+.title {
   font-size: clamp(1.75rem, 4vw, 2.5rem);
   font-weight: 700;
   margin-bottom: var(--space-lg);
@@ -25,7 +25,7 @@
   background-clip: text;
 }
 
-.contact__description {
+.description {
   color: var(--clr-fg-alt);
   font-size: 1.1rem;
   line-height: 1.8;
@@ -35,33 +35,29 @@
   margin-right: auto;
 }
 
-.contact__actions {
+.actions {
   margin-bottom: var(--space-xl);
 }
 
-.contact__email-btn {
+.emailBtn {
   font-size: 1rem;
   padding: var(--space-lg) var(--space-2xl);
 }
 
-.contact__social {
+.social {
   display: flex;
   justify-content: center;
   gap: var(--space-md);
   margin-bottom: var(--space-xl);
 }
 
-.contact__email-text {
+.emailText {
   color: var(--clr-fg-muted);
   font-size: 0.9rem;
 }
 
-.contact__email-text .link {
-  color: var(--clr-fg-alt);
-}
-
 /* Decorations */
-.contact__decoration {
+.decoration {
   position: absolute;
   border-radius: 50%;
   filter: blur(100px);
@@ -69,7 +65,7 @@
   pointer-events: none;
 }
 
-.contact__decoration--1 {
+.decoration1 {
   width: 300px;
   height: 300px;
   background: radial-gradient(circle, rgba(16, 185, 129, 0.3) 0%, transparent 70%);
@@ -77,7 +73,7 @@
   right: -100px;
 }
 
-.contact__decoration--2 {
+.decoration2 {
   width: 250px;
   height: 250px;
   background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 70%);
@@ -86,16 +82,16 @@
 }
 
 @media (max-width: 768px) {
-  .contact__content {
+  .content {
     padding: var(--space-2xl);
   }
 
-  .contact__description {
+  .description {
     font-size: 1rem;
   }
 
-  .contact__decoration--1,
-  .contact__decoration--2 {
+  .decoration1,
+  .decoration2 {
     display: none;
   }
 }

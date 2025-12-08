@@ -1,4 +1,4 @@
-.scroll-top {
+.scrollTop {
   position: fixed !important;
   bottom: 24px !important;
   right: 24px !important;
@@ -22,26 +22,26 @@
   color: var(--clr-fg);
 }
 
-.scroll-top--visible {
+.visible {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-.scroll-top:hover {
+.scrollTop:hover {
   background: var(--clr-primary);
   color: #fff;
   border-color: var(--clr-primary);
   transform: translateY(-4px);
 }
 
-.scroll-top svg {
+.scrollTop svg {
   width: 20px;
   height: 20px;
 }
 
 @media (max-width: 768px) {
-  .scroll-top {
+  .scrollTop {
     bottom: 16px !important;
     right: 16px !important;
     width: 44px;

@@ -1,58 +1,34 @@
 import EmailIcon from '@mui/icons-material/Email';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { contact, about } from '../../data';
-import './Contact.css';
+import SocialLinks from '../SocialLinks/SocialLinks';
+import styles from './Contact.module.css';
 
 const Contact = () => {
   return (
-    <section className="section contact" id="contact">
-      <div className="contact__container">
-        <div className="contact__content glass-card">
-          <h2 className="contact__title">
+    <section className={`section ${styles.contact}`} id="contact">
+      <div className={styles.container}>
+        <div className={`${styles.content} glass-card`}>
+          <h2 className={styles.title}>
             {contact.headline || "Let's Connect"}
           </h2>
           
-          <p className="contact__description">
+          <p className={styles.description}>
             {contact.description}
           </p>
 
-          <div className="contact__actions">
+          <div className={styles.actions}>
             <a
               href={`mailto:${contact.email}`}
-              className="btn btn--primary contact__email-btn"
+              className={`btn btn--primary ${styles.emailBtn}`}
             >
               <EmailIcon />
               Say Hello
             </a>
           </div>
 
-          <div className="contact__social">
-            {about.social?.github && (
-              <a
-                href={about.social.github}
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn--icon"
-                aria-label="GitHub"
-              >
-                <GitHubIcon />
-              </a>
-            )}
-            {about.social?.linkedin && (
-              <a
-                href={about.social.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn--icon"
-                aria-label="LinkedIn"
-              >
-                <LinkedInIcon />
-              </a>
-            )}
-          </div>
+          <SocialLinks social={about.social} className={styles.social} />
 
-          <p className="contact__email-text">
+          <p className={styles.emailText}>
             Or email me directly at{' '}
             <a href={`mailto:${contact.email}`} className="link">
               {contact.email}
@@ -61,8 +37,8 @@ const Contact = () => {
         </div>
 
         {/* Decorative elements */}
-        <div className="contact__decoration contact__decoration--1"></div>
-        <div className="contact__decoration contact__decoration--2"></div>
+        <div className={`${styles.decoration} ${styles.decoration1}`}></div>
+        <div className={`${styles.decoration} ${styles.decoration2}`}></div>
       </div>
     </section>
   );

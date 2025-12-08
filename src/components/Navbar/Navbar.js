@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import { projects, skills, contact, experience } from '../../data';
-import './Navbar.css';
+import { navItems } from '../../data';
+import styles from './Navbar.module.css';
 
 const Navbar = () => {
   const [showNavList, setShowNavList] = useState(false);
@@ -12,45 +12,28 @@ const Navbar = () => {
   const closeNav = () => setShowNavList(false);
 
   return (
-    <nav className="nav">
-      <ul className={`nav__list ${showNavList ? 'nav__list--open' : ''}`}>
-        {experience?.length > 0 && (
-          <li className="nav__list-item">
-            <a href="#experience" onClick={closeNav} className="nav__link">
-              Experience
-            </a>
-          </li>
-        )}
-
-        {projects?.length > 0 && (
-          <li className="nav__list-item">
-            <a href="#projects" onClick={closeNav} className="nav__link">
-              Projects
-            </a>
-          </li>
-        )}
-
-        {skills && (
-          <li className="nav__list-item">
-            <a href="#skills" onClick={closeNav} className="nav__link">
-              Skills
-            </a>
-          </li>
-        )}
-
-        {contact?.email && (
-          <li className="nav__list-item">
-            <a href="#contact" onClick={closeNav} className="nav__link nav__link--cta">
-              Contact
-            </a>
-          </li>
-        )}
+    <nav className={styles.nav}>
+      <ul className={`${styles.list} ${showNavList ? styles.listOpen : ''}`}>
+        {navItems.map((item) => {
+          if (!item.condition()) return null;
+          return (
+            <li key={item.id} className={styles.listItem}>
+              <a
+                href={`#${item.id}`}
+                onClick={closeNav}
+                className={`${styles.link} ${item.isCta ? styles.linkCta : ''}`}
+              >
+                {item.label}
+              </a>
+            </li>
+          );
+        })}
       </ul>
 
       <button
         type="button"
         onClick={toggleNavList}
-        className="btn btn--icon nav__hamburger"
+        className={`btn btn--icon ${styles.hamburger}`}
         aria-label="toggle navigation"
       >
         {showNavList ? <CloseIcon /> : <MenuIcon />}

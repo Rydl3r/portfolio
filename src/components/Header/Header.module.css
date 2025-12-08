@@ -12,7 +12,7 @@
   transition: all var(--transition-base);
 }
 
-.header__container {
+.container {
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 var(--container-padding);
@@ -21,14 +21,14 @@
   justify-content: space-between;
 }
 
-.header__logo {
+.logo {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--clr-fg);
   transition: color var(--transition-base);
 }
 
-.header__logo:hover {
+.logo:hover {
   color: var(--clr-primary);
 }
 
@@ -37,7 +37,7 @@
     padding: var(--space-sm) 0;
   }
 
-  .header__logo {
+  .logo {
     font-size: 1.25rem;
   }
 }

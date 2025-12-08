@@ -1,11 +1,7 @@
-import { render } from 'react-dom'
-import App from './App'
-import { ThemeProvider } from './contexts/theme'
-import './index.css'
+import { createRoot } from 'react-dom/client';
+import App from './App';
+import './index.css';
 
-render(
-  <ThemeProvider>
-    <App />
-  </ThemeProvider>,
-  document.getElementById('root')
-)
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<App />);

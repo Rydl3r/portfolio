@@ -4,30 +4,30 @@
   background: rgba(17, 24, 39, 0.5);
 }
 
-.footer__container {
+.container {
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 var(--container-padding);
   text-align: center;
 }
 
-.footer__text {
+.text {
   color: var(--clr-fg-alt);
   font-size: 0.9rem;
   margin-bottom: var(--space-sm);
 }
 
-.footer__link {
+.link {
   color: var(--clr-primary);
   font-weight: 500;
   transition: color var(--transition-base);
 }
 
-.footer__link:hover {
+.link:hover {
   color: var(--clr-primary-light);
 }
 
-.footer__copyright {
+.copyright {
   color: var(--clr-fg-muted);
   font-size: 0.8rem;
 }

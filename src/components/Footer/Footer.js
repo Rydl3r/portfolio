@@ -1,20 +1,21 @@
-import './Footer.css';
+import { footer } from '../../data';
+import styles from './Footer.module.css';
 
 const Footer = () => (
-  <footer className="footer">
-    <div className="footer__container">
-      <p className="footer__text">
+  <footer className={styles.footer}>
+    <div className={styles.container}>
+      <p className={styles.text}>
         Designed & Built by{' '}
         <a
-          href="https://github.com/Rydl3r"
+          href={footer.github}
           target="_blank"
           rel="noreferrer"
-          className="footer__link"
+          className={styles.link}
         >
-          Ivan Mukoied
+          {footer.author}
         </a>
       </p>
-      <p className="footer__copyright">© {new Date().getFullYear()} All rights reserved.</p>
+      <p className={styles.copyright}>© {new Date().getFullYear()} All rights reserved.</p>
     </div>
   </footer>
 );
