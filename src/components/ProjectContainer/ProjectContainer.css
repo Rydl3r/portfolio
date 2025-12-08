@@ -1,33 +1,121 @@
 .project {
-  padding: 2em;
-  margin: 0 auto;
-  text-align: center;
-  box-shadow: var(--shadow);
-  transition: transform 0.2s linear;
+  position: relative;
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-base);
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+  overflow: hidden;
 }
 
 .project:hover {
-  transform: translateY(-7px);
+  transform: translateY(-8px);
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.project--featured {
+  padding: var(--space-2xl);
+}
+
+.project--featured:hover {
+  box-shadow: var(--shadow-glow);
+}
+
+/* Glow effect */
+.project__glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.project:hover .project__glow {
+  opacity: 1;
+}
+
+/* Content */
+.project__content {
+  flex: 1;
+}
+
+.project__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.project__name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--clr-fg);
+  transition: color var(--transition-base);
+}
+
+.project:hover .project__name {
+  color: var(--clr-primary);
+}
+
+.project--featured .project__name {
+  font-size: 1.5rem;
+}
+
+.project__badge {
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--gradient-primary);
+  color: #fff;
+  border-radius: var(--radius-full);
 }
 
 .project__description {
-  margin-top: 1em;
+  color: var(--clr-fg-alt);
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+  font-size: 0.95rem;
 }
 
+.project--featured .project__description {
+  font-size: 1rem;
+}
+
+/* Stack */
 .project__stack {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  margin: 1.2em 0;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
 }
 
-.project__stack-item {
-  margin: 0.5em;
-  font-weight: 500;
-  font-size: 0.8rem;
-  color: var(--clr-fg-alt);
+/* Links */
+.project__links {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: auto;
 }
 
-.project .link--icon {
-  margin-left: 0.5em;
+@media (max-width: 480px) {
+  .project {
+    padding: var(--space-lg);
+  }
+
+  .project--featured {
+    padding: var(--space-xl);
+  }
+
+  .project__name {
+    font-size: 1.1rem;
+  }
+
+  .project--featured .project__name {
+    font-size: 1.25rem;
+  }
 }

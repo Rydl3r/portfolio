@@ -1,3 +1,101 @@
 .contact {
-  flex-direction: column;
+  padding-bottom: var(--space-4xl);
+}
+
+.contact__container {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact__content {
+  position: relative;
+  padding: var(--space-3xl);
+  text-align: center;
+  z-index: 1;
+}
+
+.contact__title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contact__description {
+  color: var(--clr-fg-alt);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: var(--space-2xl);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact__actions {
+  margin-bottom: var(--space-xl);
+}
+
+.contact__email-btn {
+  font-size: 1rem;
+  padding: var(--space-lg) var(--space-2xl);
+}
+
+.contact__social {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.contact__email-text {
+  color: var(--clr-fg-muted);
+  font-size: 0.9rem;
+}
+
+.contact__email-text .link {
+  color: var(--clr-fg-alt);
+}
+
+/* Decorations */
+.contact__decoration {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.contact__decoration--1 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.3) 0%, transparent 70%);
+  top: -100px;
+  right: -100px;
+}
+
+.contact__decoration--2 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 70%);
+  bottom: -80px;
+  left: -80px;
+}
+
+@media (max-width: 768px) {
+  .contact__content {
+    padding: var(--space-2xl);
+  }
+
+  .contact__description {
+    font-size: 1rem;
+  }
+
+  .contact__decoration--1,
+  .contact__decoration--2 {
+    display: none;
+  }
 }

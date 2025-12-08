@@ -1,75 +1,57 @@
-import { useContext, useState } from 'react';
-import Brightness2Icon from '@mui/icons-material/Brightness2';
-import WbSunnyRoundedIcon from '@mui/icons-material/WbSunnyRounded';
+import { useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import { ThemeContext } from '../../contexts/theme';
-import { projects, skills, contact } from '../../data';
+import { projects, skills, contact, experience } from '../../data';
 import './Navbar.css';
 
 const Navbar = () => {
-  const [{ themeName, toggleTheme }] = useContext(ThemeContext);
   const [showNavList, setShowNavList] = useState(false);
 
   const toggleNavList = () => setShowNavList(!showNavList);
 
+  const closeNav = () => setShowNavList(false);
+
   return (
-    <nav className='center nav'>
-      <ul
-        style={{ display: showNavList ? 'flex' : null }}
-        className='nav__list'
-      >
-        {projects.length ? (
-          <li className='nav__list-item'>
-            <a
-              href='#projects'
-              onClick={toggleNavList}
-              className='link link--nav'
-            >
+    <nav className="nav">
+      <ul className={`nav__list ${showNavList ? 'nav__list--open' : ''}`}>
+        {experience?.length > 0 && (
+          <li className="nav__list-item">
+            <a href="#experience" onClick={closeNav} className="nav__link">
+              Experience
+            </a>
+          </li>
+        )}
+
+        {projects?.length > 0 && (
+          <li className="nav__list-item">
+            <a href="#projects" onClick={closeNav} className="nav__link">
               Projects
             </a>
           </li>
-        ) : null}
+        )}
 
-        {skills.length ? (
-          <li className='nav__list-item'>
-            <a
-              href='#skills'
-              onClick={toggleNavList}
-              className='link link--nav'
-            >
+        {skills && (
+          <li className="nav__list-item">
+            <a href="#skills" onClick={closeNav} className="nav__link">
               Skills
             </a>
           </li>
-        ) : null}
+        )}
 
-        {contact.email ? (
-          <li className='nav__list-item'>
-            <a
-              href='#contact'
-              onClick={toggleNavList}
-              className='link link--nav'
-            >
+        {contact?.email && (
+          <li className="nav__list-item">
+            <a href="#contact" onClick={closeNav} className="nav__link nav__link--cta">
               Contact
             </a>
           </li>
-        ) : null}
+        )}
       </ul>
 
       <button
-        type='button'
-        onClick={toggleTheme}
-        className='btn btn--icon nav__theme'
-        aria-label='toggle theme'
-      >
-        {themeName === 'dark' ? <WbSunnyRoundedIcon /> : <Brightness2Icon />}
-      </button>
-
-      <button
-        type='button'
+        type="button"
         onClick={toggleNavList}
-        className='btn btn--icon nav__hamburger'
-        aria-label='toggle navigation'
+        className="btn btn--icon nav__hamburger"
+        aria-label="toggle navigation"
       >
         {showNavList ? <CloseIcon /> : <MenuIcon />}
       </button>

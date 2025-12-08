@@ -1,39 +1,96 @@
-.nav__list {
-  margin-right: 1.5em;
+.nav {
   display: flex;
-}
-.nav__list-item {
-  margin-left: 1.5em;
-}
-
-.app .nav__hamburger {
-  display: none;
+  align-items: center;
+  gap: var(--space-md);
 }
 
-.nav__theme {
-  margin-top: 0.4em;
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
 }
 
-@media (max-width: 600px) {
+.nav__link {
+  padding: var(--space-sm) var(--space-md);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--clr-fg-alt);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+}
+
+.nav__link:hover {
+  color: var(--clr-fg);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav__link--cta {
+  background: var(--gradient-primary);
+  color: #fff;
+  padding: var(--space-sm) var(--space-lg);
+}
+
+.nav__link--cta:hover {
+  background: var(--gradient-primary);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+/* Hamburger - ONLY on mobile */
+.nav__hamburger {
+  display: none !important;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .nav__hamburger {
+    display: flex !important;
+    z-index: 1000;
+    position: relative;
+  }
+
   .nav__list {
-    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
+    gap: var(--space-xl);
+    background: #0a0a0f;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all var(--transition-base);
+    z-index: 999;
   }
 
-  .nav__list-item {
-    margin: 0.5em 0;
+  .nav__list--open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
 
-  .app .nav__hamburger {
-    display: flex;
-    z-index: 2;
-    margin-left: 0.8em;
+  .nav__link {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: var(--space-md) var(--space-2xl);
+    color: var(--clr-fg);
+  }
+
+  .nav__link:hover {
+    color: var(--clr-primary);
+    background: transparent;
+  }
+
+  .nav__link--cta {
+    font-size: 1.5rem;
+    padding: var(--space-md) var(--space-2xl);
+    margin-top: var(--space-md);
   }
 }

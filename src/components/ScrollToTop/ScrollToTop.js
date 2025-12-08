@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import './ScrollToTop.css';
 
@@ -13,12 +13,22 @@ const ScrollToTop = () => {
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
-    <div className={`scroll-top ${isVisible ? 'visible' : ''}`}>
-      <a href='#top'>
-        <ArrowUpwardIcon fontSize='large' />
-      </a>
-    </div>
+    <button
+      type="button"
+      onClick={scrollToTop}
+      className={`scroll-top ${isVisible ? 'scroll-top--visible' : ''}`}
+      aria-label="scroll to top"
+    >
+      <ArrowUpwardIcon />
+    </button>
   );
 };
 
