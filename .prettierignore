@@ -1,0 +1,7 @@
+build
+node_modules
+package-lock.json
+.agents
+public
+src
+src/assets/images
