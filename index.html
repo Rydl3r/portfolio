@@ -9,7 +9,20 @@
       content="Ivan Mukoied - Frontend Developer with 5+ years of experience building interactive web experiences with React, TypeScript, and modern frontend technologies."
     />
     <meta name="author" content="Ivan Mukoied" />
-    <meta name="theme-color" content="#0d1117" />
+    <meta
+      name="keywords"
+      content="Frontend Developer, React Developer, TypeScript, Next.js, JavaScript, Web Development, Warsaw, Portfolio"
+    />
+    <meta
+      name="theme-color"
+      content="#0d1117"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta
+      name="theme-color"
+      content="#fafbfc"
+      media="(prefers-color-scheme: light)"
+    />
 
     <!-- Open Graph -->
     <meta property="og:title" content="Ivan Mukoied | Frontend Developer" />
@@ -32,6 +45,38 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ivan Mukoied",
+        "jobTitle": "Frontend Developer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "HumanSpark"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Warsaw",
+          "addressCountry": "Poland"
+        },
+        "sameAs": [
+          "https://github.com/Rydl3r",
+          "https://www.linkedin.com/in/rydler/"
+        ],
+        "knowsAbout": [
+          "React",
+          "TypeScript",
+          "JavaScript",
+          "Next.js",
+          "Frontend Development",
+          "Web Development"
+        ],
+        "email": "1rydler@gmail.com"
+      }
+    </script>
   </head>
   <body>
     <!-- Skip Link for Accessibility -->
@@ -58,6 +103,14 @@
           class="terminal__dot terminal__dot--green"
           aria-hidden="true"
         ></span>
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          aria-label="Toggle dark/light theme"
+          title="Switch theme"
+        >
+          <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+        </button>
       </header>
 
       <div class="terminal__body">
@@ -93,7 +146,8 @@
             </p>
             <p class="line">
               <span class="label">Status:</span>
-              <span class="status-indicator">████</span> ONLINE
+              <span class="status-indicator" aria-label="Online">████</span>
+              ONLINE
             </p>
           </div>
           <h1 id="about-heading" class="visually-hidden">
@@ -145,15 +199,20 @@
                   <li class="skill-tag">Next.js</li>
                   <li class="skill-tag">HTML5</li>
                   <li class="skill-tag">CSS3</li>
+                  <li class="skill-tag">Vue.js</li>
+                  <li class="skill-tag">Astro</li>
                 </ul>
               </article>
               <article class="skill-category">
-                <h3 class="skill-category__title">// State Management</h3>
+                <h3 class="skill-category__title">// State & Data</h3>
                 <ul class="skill-list" role="list">
                   <li class="skill-tag">Redux</li>
                   <li class="skill-tag">Tanstack Query</li>
                   <li class="skill-tag">Zustand</li>
                   <li class="skill-tag">Context API</li>
+                  <li class="skill-tag">GraphQL</li>
+                  <li class="skill-tag">REST APIs</li>
+                  <li class="skill-tag">SWR</li>
                 </ul>
               </article>
               <article class="skill-category">
@@ -164,6 +223,9 @@
                   <li class="skill-tag">Shadcn/ui</li>
                   <li class="skill-tag">Chakra UI</li>
                   <li class="skill-tag">SCSS</li>
+                  <li class="skill-tag">Styled Components</li>
+                  <li class="skill-tag">CSS Modules</li>
+                  <li class="skill-tag">Framer Motion</li>
                 </ul>
               </article>
               <article class="skill-category">
@@ -171,10 +233,23 @@
                 <ul class="skill-list" role="list">
                   <li class="skill-tag">Jest</li>
                   <li class="skill-tag">Cypress</li>
+                  <li class="skill-tag">Playwright</li>
+                  <li class="skill-tag">React Testing Library</li>
                   <li class="skill-tag">Git</li>
                   <li class="skill-tag">Webpack</li>
                   <li class="skill-tag">Vite</li>
-                  <li class="skill-tag">GraphQL</li>
+                  <li class="skill-tag">Turborepo</li>
+                </ul>
+              </article>
+              <article class="skill-category">
+                <h3 class="skill-category__title">// Backend & DevOps</h3>
+                <ul class="skill-list" role="list">
+                  <li class="skill-tag">Node.js</li>
+                  <li class="skill-tag">Express</li>
+                  <li class="skill-tag">Firebase</li>
+                  <li class="skill-tag">PostgreSQL</li>
+                  <li class="skill-tag">Docker</li>
+                  <li class="skill-tag">Vercel</li>
                 </ul>
               </article>
             </div>
@@ -574,19 +649,27 @@
           </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-          <div class="line">
+        <!-- Footer / Interactive Terminal -->
+        <footer class="footer" id="terminal-footer">
+          <div class="line terminal-input-line">
             <span class="prompt" aria-hidden="true">ivan@dev:~$</span>
-            <span class="command blink" aria-hidden="true">_</span>
+            <input
+              type="text"
+              class="terminal-input"
+              id="terminal-input"
+              placeholder="Try typing something... 🤫"
+              aria-label="Interactive terminal input"
+              autocomplete="off"
+              spellcheck="false"
+            />
           </div>
-          <p class="footer__text">
-            // Process completed. Awaiting input<span
-              class="loading-dots"
-              aria-hidden="true"
-            ></span>
-            //
-          </p>
+          <div
+            id="terminal-output"
+            class="terminal-response"
+            role="log"
+            aria-live="polite"
+            aria-atomic="true"
+          ></div>
         </footer>
       </div>
     </div>
