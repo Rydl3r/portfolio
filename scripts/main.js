@@ -1,10 +1,11 @@
 // All page content lives in index.html. This file only adds the optional,
-// interactive extras: the motion toggle, the visitor counter, the guestbook,
+// interactive extras: boring mode, the motion toggle, the visitor counter, the guestbook,
 // the dates, the fortune cookie, the tab-title trick, the cheat code and the
 // sparkle trail. The music player lives in scripts/midi-player.js.
 // Without JavaScript the page still shows everything.
 
 const MOTION_KEY = "ivan-motion-paused";
+const BORING_KEY = "ivan-boring";
 const VISITS_KEY = "ivan-visits";
 const GUESTBOOK_KEY = "ivan-guestbook";
 const STARTING_VISITS = 5500;
@@ -62,6 +63,41 @@ function setupMotionToggle() {
     apply(paused);
     writeStorage(MOTION_KEY, String(paused));
   });
+}
+
+// ---------- Boring mode ----------
+// A clean layout for people who want the facts fast (styles/boring.css).
+// The class is applied by a small script in <head> before first paint;
+// this wires up the button and remembers the choice.
+
+function isBoring() {
+  return document.documentElement.classList.contains("boring");
+}
+
+function setupBoringToggle() {
+  const button = document.getElementById("boring-toggle");
+
+  function render() {
+    const boring = isBoring();
+    button.setAttribute("aria-pressed", String(boring));
+    button.textContent = boring ? "Back to 1999" : "[ BORING MODE ]";
+  }
+
+  button.addEventListener("click", () => {
+    const boring = !isBoring();
+    document.documentElement.classList.toggle("boring", boring);
+    writeStorage(BORING_KEY, String(boring));
+
+    // Drop ?boring from the address so a reload respects the button choice
+    const url = new URL(location.href);
+    if (url.searchParams.has("boring")) {
+      url.searchParams.delete("boring");
+      history.replaceState(null, "", url);
+    }
+    render();
+  });
+
+  render();
 }
 
 // ---------- Visitor counter (counts visits in this browser only) ----------
@@ -187,7 +223,7 @@ function setupCheatCode() {
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => toast.classList.remove("show"), 4000);
 
-    if (isMotionPaused()) return;
+    if (isMotionPaused() || isBoring()) return;
     for (let i = 0; i < 40; i++) {
       const floppy = document.createElement("span");
       floppy.className = "falling-floppy";
@@ -228,7 +264,7 @@ function setupSparkleTrail() {
   let lastSparkleTime = 0;
 
   window.addEventListener("mousemove", (event) => {
-    if (isMotionPaused()) return;
+    if (isMotionPaused() || isBoring()) return;
 
     const now = performance.now();
     if (now - lastSparkleTime < MIN_INTERVAL_MS) return;
@@ -247,8 +283,24 @@ function setupSparkleTrail() {
   });
 }
 
+// ---------- Hello, DevTools ----------
+// Pairs with the ASCII floppy at the top of index.html.
+
+function greetDevelopers() {
+  console.log(
+    "%c💾 Ivan's Homepage",
+    "font: bold 28px 'Comic Neue', cursive; color: #ff66ff; text-shadow: 2px 2px 0 #000080;",
+  );
+  console.log(
+    "%cLooking under the hood? Respect.\nThe source is hand-written and readable, so poke around.\nSay hi: 1rydler@gmail.com",
+    "font: 14px monospace; line-height: 1.6; color: #00ff00; background: #000; padding: 6px 10px;",
+  );
+}
+
 // ---------- Init ----------
 
+greetDevelopers();
+setupBoringToggle();
 setupMotionToggle();
 setupVisitorCounter();
 setupGuestbook();

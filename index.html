@@ -1,4 +1,22 @@
 <!doctype html>
+<!--
+   ________________________________________________
+  |  [==============]                              |
+  |  [==============]                              |
+  |                                                |
+  |   __________________________________________   |
+  |  |                                          |  |
+  |  |  Hey there, fellow view-source enjoyer!  |  |
+  |  |                                          |  |
+  |  |   Yes, this page is hand-written HTML.   |  |
+  |  | No framework. No build step. No jQuery.  |  |
+  |  |                                          |  |
+  |  |        Say hi: 1rydler@gmail.com         |  |
+  |  |__________________________________________|  |
+  |________________________________________________|
+
+     P.S. The Konami code works here. You know the one.
+-->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -50,13 +68,20 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon.png" />
     <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=VT323&display=swap" rel="stylesheet" />
+    <!-- Fonts (self-hosted) -->
+    <link rel="preload" href="assets/fonts/comic-neue-700-latin.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/boring.css" />
+
+    <!-- Apply "boring mode" (?boring or a saved choice) before first paint, so the 1999 version never flashes -->
+    <script>
+      try {
+        const wantsBoring = new URLSearchParams(location.search).has("boring") || localStorage.getItem("ivan-boring") === "true";
+        if (wantsBoring) document.documentElement.classList.add("boring");
+      } catch {}
+    </script>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -98,14 +123,14 @@
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <div class="construction" aria-hidden="true">
+    <div class="construction fun-only" aria-hidden="true">
       <span>🚧 UNDER CONSTRUCTION SINCE 2021 🚧</span>
     </div>
 
     <div class="wrap">
       <!-- Header -->
       <header>
-        <div class="marquee" aria-hidden="true">
+        <div class="marquee fun-only" aria-hidden="true">
           <span>
             ★ WELCOME TO MY HOMEPAGE!!! ★ I'm Ivan and I make websites ★ Please sign my guestbook
             ★ Don't forget to bookmark this page!!! ★ Turn your speakers on for the sidebar jukebox ★
@@ -113,18 +138,24 @@
         </div>
 
         <h1>
-          <span aria-hidden="true">~*~ </span>Ivan's Homepage<span aria-hidden="true"> ~*~</span>
+          <span class="fun-only"><span aria-hidden="true">~*~ </span>Ivan's Homepage<span aria-hidden="true"> ~*~</span></span>
+          <span class="boring-only">Ivan Mukoied</span>
         </h1>
         <p class="subtitle">
           <span aria-hidden="true">&gt;&gt; </span>Senior Frontend Developer
-          <span aria-hidden="true">&lt;&lt;</span> Warsaw, Poland
+          <span aria-hidden="true">&lt;&lt;</span><span class="boring-only"> · </span> Warsaw, Poland
           <span aria-hidden="true">&lt;&lt;</span>
-          <span class="blink">ONLINE NOW</span>
+          <span class="blink fun-only">ONLINE NOW</span>
         </p>
 
-        <button type="button" class="motion-toggle" id="motion-toggle" aria-pressed="false">
-          [ STOP THE MADNESS ]
-        </button>
+        <div class="header-buttons">
+          <button type="button" class="motion-toggle fun-only" id="motion-toggle" aria-pressed="false">
+            [ STOP THE MADNESS ]
+          </button>
+          <button type="button" class="boring-toggle" id="boring-toggle" aria-pressed="false">
+            [ BORING MODE ]
+          </button>
+        </div>
       </header>
 
       <hr class="rainbow" />
@@ -135,22 +166,22 @@
           <nav aria-labelledby="nav-title">
             <h2 class="nav-title" id="nav-title">~ NAVIGATION ~</h2>
             <ul class="nav-links">
-              <li><a href="#about"><span aria-hidden="true">➤ </span>About Me</a></li>
-              <li><a href="#jobs"><span aria-hidden="true">➤ </span>My Jobs</a></li>
+              <li><a href="#about"><span aria-hidden="true">➤ </span><span class="fun-only">About Me</span><span class="boring-only">About</span></a></li>
+              <li><a href="#jobs"><span aria-hidden="true">➤ </span><span class="fun-only">My Jobs</span><span class="boring-only">Experience</span></a></li>
               <li>
                 <a href="#projects">
-                  <span aria-hidden="true">➤ </span>Kool Projects
+                  <span aria-hidden="true">➤ </span><span class="fun-only">Kool Projects</span><span class="boring-only">Projects</span>
                   <span class="new-badge" aria-hidden="true">NEW!</span>
                 </a>
               </li>
-              <li><a href="#skills"><span aria-hidden="true">➤ </span>Skillz</a></li>
-              <li><a href="#guestbook"><span aria-hidden="true">➤ </span>Guestbook</a></li>
-              <li><a href="mailto:1rydler@gmail.com"><span aria-hidden="true">➤ </span>E-Mail Me!</a></li>
+              <li><a href="#skills"><span aria-hidden="true">➤ </span><span class="fun-only">Skillz</span><span class="boring-only">Skills</span></a></li>
+              <li class="fun-only"><a href="#guestbook"><span aria-hidden="true">➤ </span>Guestbook</a></li>
+              <li><a href="mailto:1rydler@gmail.com"><span aria-hidden="true">➤ </span><span class="fun-only">E-Mail Me!</span><span class="boring-only">Contact</span></a></li>
             </ul>
           </nav>
 
           <!-- Floppy, visitor counter and jukebox: stacked on desktop, side by side on phones -->
-          <div class="sidebar-widgets">
+          <div class="sidebar-widgets fun-only">
             <span class="floppy" id="floppy" aria-hidden="true">💾</span>
 
             <div class="visitor">
@@ -184,17 +215,17 @@
             </h2>
             <img class="portrait" src="assets/images/profile.jpeg" alt="Portrait of Ivan Mukoied" />
             <p>
-              Hi and welcome to my corner of the World Wide Web!!! I'm Ivan, a Senior Frontend
+              <span class="fun-only">Hi and welcome to my corner of the World Wide Web!!!</span> I'm Ivan, a Senior Frontend
               Developer from Warsaw, currently at Nearmap. I've been making websites for over five
               years and I still enjoy it, mostly because the job is never really done. I care about
               the details people only notice when they're missing: fast pages, readable text, and
               buttons that still work when you use a keyboard.
             </p>
-            <p>
+            <p class="fun-only">
               My hobbies include: centering divs, arguing about CSS-in-JS, and writing chiptunes
               for my own homepage (press ▶ in the sidebar). <span aria-hidden="true">😎</span>
             </p>
-            <div class="fortune comic">
+            <div class="fortune comic fun-only">
               <h3 class="fortune-title">
                 <span aria-hidden="true">🥠 </span>Webmaster's Fortune Cookie
               </h3>
@@ -208,7 +239,7 @@
           <!-- Everything below the sidebar runs full width -->
           <div class="panel content-panel">
             <section id="jobs" aria-labelledby="jobs-heading">
-              <h2 id="jobs-heading"><span aria-hidden="true">💼 </span>My Jobs</h2>
+              <h2 id="jobs-heading"><span aria-hidden="true">💼 </span><span class="fun-only">My Jobs</span><span class="boring-only">Experience</span></h2>
               <div class="jobs">
                 <!-- Looks like a table header; screen readers get each job as its own article -->
                 <div class="jobs-head" aria-hidden="true">
@@ -297,7 +328,7 @@
 
             <section id="projects" aria-labelledby="projects-heading">
               <h2 id="projects-heading">
-                <span aria-hidden="true">🚀 </span>Kool Projects
+                <span aria-hidden="true">🚀 </span><span class="fun-only">Kool Projects</span><span class="boring-only">Projects</span>
                 <span class="new-badge" aria-hidden="true">NEW!</span>
               </h2>
               <ul class="project-list">
@@ -310,7 +341,7 @@
                         <span class="browser-button">▶</span>
                         <span class="browser-url">https://nearmap.com/products/imagery</span>
                       </div>
-                      <img src="assets/images/nearmap.webp" alt="Screenshot of Nearmap" loading="lazy" width="1200" height="750" />
+                      <img src="assets/images/nearmap.webp" srcset="assets/images/nearmap-600.webp 600w, assets/images/nearmap-800.webp 800w, assets/images/nearmap.webp 1200w" sizes="(max-width: 640px) calc(100vw - 64px), (max-width: 1000px) calc(50vw - 60px), 420px" alt="Screenshot of Nearmap" loading="lazy" width="1200" height="750" />
                     </figure>
                     <p>
                       Nearmap's global website for its aerial imagery and AI products, serving customers across the US, Australia and New Zealand.
@@ -328,7 +359,7 @@
                       </ul>
                     </div>
                     <p class="project-links">
-                      <a href="https://www.nearmap.com/" target="_blank" rel="noopener" aria-label="Click here to visit Nearmap (opens in a new tab)">[ CLICK HERE TO VISIT ]</a>
+                      <a href="https://www.nearmap.com/" target="_blank" rel="noopener" aria-label="Click here to visit Nearmap (opens in a new tab)"><span class="fun-only">[ CLICK HERE TO VISIT ]</span><span class="boring-only">Visit site →</span></a>
                     </p>
                   </article>
                 </li>
@@ -341,7 +372,7 @@
                         <span class="browser-button">▶</span>
                         <span class="browser-url">https://uspacy.com</span>
                       </div>
-                      <img src="assets/images/uspacy.webp" alt="Screenshot of Uspacy" loading="lazy" width="1200" height="750" />
+                      <img src="assets/images/uspacy.webp" srcset="assets/images/uspacy-600.webp 600w, assets/images/uspacy-800.webp 800w, assets/images/uspacy.webp 1200w" sizes="(max-width: 640px) calc(100vw - 64px), (max-width: 1000px) calc(50vw - 60px), 420px" alt="Screenshot of Uspacy" loading="lazy" width="1200" height="750" />
                     </figure>
                     <p>
                       An all-in-one workspace for teams: chat, CRM, tasks and telephony in a single app.
@@ -357,7 +388,7 @@
                       </ul>
                     </div>
                     <p class="project-links">
-                      <a href="https://uspacy.com/" target="_blank" rel="noopener" aria-label="Click here to visit Uspacy (opens in a new tab)">[ CLICK HERE TO VISIT ]</a>
+                      <a href="https://uspacy.com/" target="_blank" rel="noopener" aria-label="Click here to visit Uspacy (opens in a new tab)"><span class="fun-only">[ CLICK HERE TO VISIT ]</span><span class="boring-only">Visit site →</span></a>
                     </p>
                   </article>
                 </li>
@@ -370,7 +401,7 @@
                         <span class="browser-button">▶</span>
                         <span class="browser-url">https://feodal.online/en</span>
                       </div>
-                      <img src="assets/images/feodal.webp" alt="Screenshot of Feodal" loading="lazy" width="1200" height="750" />
+                      <img src="assets/images/feodal.webp" srcset="assets/images/feodal-600.webp 600w, assets/images/feodal-800.webp 800w, assets/images/feodal.webp 1200w" sizes="(max-width: 640px) calc(100vw - 64px), (max-width: 1000px) calc(50vw - 60px), 420px" alt="Screenshot of Feodal" loading="lazy" width="1200" height="750" />
                     </figure>
                     <p>
                       A Ukrainian agritech platform for managing farmland: field maps, land audits and real-time monitoring for farmers, local communities and landowners.
@@ -386,7 +417,7 @@
                       </ul>
                     </div>
                     <p class="project-links">
-                      <a href="https://feodal.online/en" target="_blank" rel="noopener" aria-label="Click here to visit Feodal (opens in a new tab)">[ CLICK HERE TO VISIT ]</a>
+                      <a href="https://feodal.online/en" target="_blank" rel="noopener" aria-label="Click here to visit Feodal (opens in a new tab)"><span class="fun-only">[ CLICK HERE TO VISIT ]</span><span class="boring-only">Visit site →</span></a>
                     </p>
                   </article>
                 </li>
@@ -399,7 +430,7 @@
                         <span class="browser-button">▶</span>
                         <span class="browser-url">https://trackfin-panel.vercel.app/statistics</span>
                       </div>
-                      <img src="assets/images/trackfin.webp" alt="Screenshot of TrackFin" loading="lazy" width="1200" height="750" />
+                      <img src="assets/images/trackfin.webp" srcset="assets/images/trackfin-600.webp 600w, assets/images/trackfin-800.webp 800w, assets/images/trackfin.webp 1200w" sizes="(max-width: 640px) calc(100vw - 64px), (max-width: 1000px) calc(50vw - 60px), 420px" alt="Screenshot of TrackFin" loading="lazy" width="1200" height="750" />
                     </figure>
                     <p>
                       A personal finance tracker in two halves: a Telegram bot for logging expenses in a few taps, and a web panel with charts, multi-currency totals and an AI read of your spending habits.
@@ -431,7 +462,7 @@
                         <span class="browser-button">▶</span>
                         <span class="browser-url">https://cvbuildai.vercel.app</span>
                       </div>
-                      <img src="assets/images/cvbuildai.webp" alt="Screenshot of CV Build AI" loading="lazy" width="1200" height="750" />
+                      <img src="assets/images/cvbuildai.webp" srcset="assets/images/cvbuildai-600.webp 600w, assets/images/cvbuildai-800.webp 800w, assets/images/cvbuildai.webp 1200w" sizes="(max-width: 640px) calc(100vw - 64px), (max-width: 1000px) calc(50vw - 60px), 420px" alt="Screenshot of CV Build AI" loading="lazy" width="1200" height="750" />
                     </figure>
                     <p>
                       A résumé builder where Google Gemini helps write the content. Sign in with Google, edit with a live preview, pick a theme colour, then share a link or export a PDF.
@@ -452,8 +483,8 @@
                       </ul>
                     </div>
                     <p class="project-links">
-                      <a href="https://cvbuildai.vercel.app/" target="_blank" rel="noopener" aria-label="Click here to visit CV Build AI (opens in a new tab)">[ CLICK HERE TO VISIT ]</a>
-                      <a href="https://github.com/Rydl3r/cvbuildai" target="_blank" rel="noopener" aria-label="Source code for CV Build AI (opens in a new tab)">[ SOURCE CODE ]</a>
+                      <a href="https://cvbuildai.vercel.app/" target="_blank" rel="noopener" aria-label="Click here to visit CV Build AI (opens in a new tab)"><span class="fun-only">[ CLICK HERE TO VISIT ]</span><span class="boring-only">Visit site →</span></a>
+                      <a href="https://github.com/Rydl3r/cvbuildai" target="_blank" rel="noopener" aria-label="Source code for CV Build AI (opens in a new tab)"><span class="fun-only">[ SOURCE CODE ]</span><span class="boring-only">Source code →</span></a>
                     </p>
                   </article>
                 </li>
@@ -466,7 +497,7 @@
                         <span class="browser-button">▶</span>
                         <span class="browser-url">chrome-extension://watchlist-picker/popup.html</span>
                       </div>
-                      <img src="assets/images/imdb.webp" alt="Screenshot of Watchlist Picker" loading="lazy" width="1200" height="750" />
+                      <img src="assets/images/imdb.webp" srcset="assets/images/imdb-600.webp 600w, assets/images/imdb-800.webp 800w, assets/images/imdb.webp 1200w" sizes="(max-width: 640px) calc(100vw - 64px), (max-width: 1000px) calc(50vw - 60px), 420px" alt="Screenshot of Watchlist Picker" loading="lazy" width="1200" height="750" />
                     </figure>
                     <p>
                       A Chrome extension that picks a random movie, show or game from your IMDb watchlist, with filters for genre, length, rating, language and more. It reads the watchlist straight from IMDb's GraphQL API, so there's nothing to export.
@@ -481,7 +512,7 @@
                       </ul>
                     </div>
                     <p class="project-links">
-                      <a href="https://github.com/Rydl3r/imdb-picker" target="_blank" rel="noopener" aria-label="Source code for Watchlist Picker (opens in a new tab)">[ SOURCE CODE ]</a>
+                      <a href="https://github.com/Rydl3r/imdb-picker" target="_blank" rel="noopener" aria-label="Source code for Watchlist Picker (opens in a new tab)"><span class="fun-only">[ SOURCE CODE ]</span><span class="boring-only">Source code →</span></a>
                     </p>
                   </article>
                 </li>
@@ -494,7 +525,7 @@
                         <span class="browser-button">▶</span>
                         <span class="browser-url">chrome-extension://slop-blocker/blocked.html</span>
                       </div>
-                      <img src="assets/images/slop-blocker.webp" alt="Screenshot of Slop Blocker" loading="lazy" width="1200" height="750" />
+                      <img src="assets/images/slop-blocker.webp" srcset="assets/images/slop-blocker-600.webp 600w, assets/images/slop-blocker-800.webp 800w, assets/images/slop-blocker.webp 1200w" sizes="(max-width: 640px) calc(100vw - 64px), (max-width: 1000px) calc(50vw - 60px), 420px" alt="Screenshot of Slop Blocker" loading="lazy" width="1200" height="750" />
                     </figure>
                     <p>
                       A Chrome extension that blocks distracting sites with domain, wildcard or regex rules on optional schedules, then shows streaks, stats and a motivational interruption page. Everything stays on your device.
@@ -508,7 +539,7 @@
                       </ul>
                     </div>
                     <p class="project-links">
-                      <a href="https://github.com/Rydl3r/slop-blocker" target="_blank" rel="noopener" aria-label="Source code for Slop Blocker (opens in a new tab)">[ SOURCE CODE ]</a>
+                      <a href="https://github.com/Rydl3r/slop-blocker" target="_blank" rel="noopener" aria-label="Source code for Slop Blocker (opens in a new tab)"><span class="fun-only">[ SOURCE CODE ]</span><span class="boring-only">Source code →</span></a>
                     </p>
                   </article>
                 </li>
@@ -519,9 +550,9 @@
                       <div class="browser-bar" aria-hidden="true">
                         <span class="browser-button">◀</span>
                         <span class="browser-button">▶</span>
-                        <span class="browser-url">https://youtube.com/watch?v=OEV8gMkCHXQ</span>
+                        <span class="browser-url">chrome-extension://zentube/popup.html</span>
                       </div>
-                      <img src="assets/images/zentube.webp" alt="Screenshot of ZenTube" loading="lazy" width="1200" height="750" />
+                      <img src="assets/images/zentube.webp" srcset="assets/images/zentube-600.webp 600w, assets/images/zentube-800.webp 800w, assets/images/zentube.webp 1200w" sizes="(max-width: 640px) calc(100vw - 64px), (max-width: 1000px) calc(50vw - 60px), 420px" alt="Screenshot of ZenTube" loading="lazy" width="1200" height="750" />
                     </figure>
                     <p>
                       A browser extension that strips YouTube down to the video: no recommendations, Shorts, comments, end screens or autoplay, each toggle switchable from a small popup.
@@ -535,7 +566,7 @@
                       </ul>
                     </div>
                     <p class="project-links">
-                      <a href="https://github.com/Rydl3r/zentube" target="_blank" rel="noopener" aria-label="Source code for ZenTube (opens in a new tab)">[ SOURCE CODE ]</a>
+                      <a href="https://github.com/Rydl3r/zentube" target="_blank" rel="noopener" aria-label="Source code for ZenTube (opens in a new tab)"><span class="fun-only">[ SOURCE CODE ]</span><span class="boring-only">Source code →</span></a>
                     </p>
                   </article>
                 </li>
@@ -548,7 +579,7 @@
                         <span class="browser-button">▶</span>
                         <span class="browser-url">https://rapira.com.ua</span>
                       </div>
-                      <img src="assets/images/rapira.webp" alt="Screenshot of Rapira" loading="lazy" width="1200" height="750" />
+                      <img src="assets/images/rapira.webp" srcset="assets/images/rapira-600.webp 600w, assets/images/rapira-800.webp 800w, assets/images/rapira.webp 1200w" sizes="(max-width: 640px) calc(100vw - 64px), (max-width: 1000px) calc(50vw - 60px), 420px" alt="Screenshot of Rapira" loading="lazy" width="1200" height="750" />
                     </figure>
                     <p>
                       An online catalogue for a Ukrainian maker of professional manicure tools, with its own admin panel for managing categories and products.
@@ -566,14 +597,14 @@
                       </ul>
                     </div>
                     <p class="project-links">
-                      <a href="https://rapira.com.ua/" target="_blank" rel="noopener" aria-label="Click here to visit Rapira (opens in a new tab)">[ CLICK HERE TO VISIT ]</a>
+                      <a href="https://rapira.com.ua/" target="_blank" rel="noopener" aria-label="Click here to visit Rapira (opens in a new tab)"><span class="fun-only">[ CLICK HERE TO VISIT ]</span><span class="boring-only">Visit site →</span></a>
                     </p>
                   </article>
                 </li>
               </ul>
             </section>
 
-            <aside class="prize-promo" aria-label="Prize announcement">
+            <aside class="prize-promo fun-only" aria-label="Prize announcement">
               <span class="promo-label">ADVERTISEMENT</span>
               <a class="promo" href="mailto:1rydler@gmail.com?subject=I%20am%20the%201%2C000%2C000th%20visitor!">
                 <span class="promo-stars" aria-hidden="true">★★★</span>
@@ -586,7 +617,7 @@
             </aside>
 
             <section id="skills" aria-labelledby="skills-heading">
-              <h2 id="skills-heading"><span aria-hidden="true">🧠 </span>My Skillz</h2>
+              <h2 id="skills-heading"><span aria-hidden="true">🧠 </span><span class="fun-only">My Skillz</span><span class="boring-only">Skills</span></h2>
               <div class="window">
                 <div class="window-titlebar" aria-hidden="true">
                   <span>📁 C:\SKILLZ</span>
@@ -720,7 +751,7 @@
 
             <hr class="rainbow" />
 
-            <section id="guestbook" class="guestbook comic" aria-labelledby="guestbook-heading">
+            <section id="guestbook" class="guestbook comic fun-only" aria-labelledby="guestbook-heading">
               <h2 id="guestbook-heading"><span aria-hidden="true">📖 </span>Sign My Guestbook!!</h2>
               <form id="guestbook-form">
                 <label class="visually-hidden" for="guestbook-name">Your name</label>
@@ -754,7 +785,7 @@
 
       <!-- Footer -->
       <footer>
-        <div class="badges" aria-hidden="true">
+        <div class="badges fun-only" aria-hidden="true">
           <span class="badge-green">BEST VIEWED IN ANY BROWSER</span>
           <span class="badge-yellow">MADE WITH NOTEPAD (NOT)</span>
           <span class="badge-red">NO JQUERY INSIDE</span>
@@ -763,7 +794,7 @@
           <span class="badge-cheat">↑↑↓↓←→←→BA</span>
         </div>
 
-        <nav class="webring" aria-label="Webring and contact">
+        <nav class="webring fun-only" aria-label="Webring and contact">
           <span aria-hidden="true">&lt;&lt; </span>
           <a href="https://github.com/Rydl3r" target="_blank" rel="noopener">
             Prev<span class="visually-hidden">: my GitHub (opens in a new tab)</span>
@@ -780,16 +811,27 @@
           </span>
         </nav>
 
+        <div class="boring-contact boring-only">
+          <h2 class="boring-contact-title">Get in touch</h2>
+          <p class="boring-contact-text">Email is the fastest way to reach me.</p>
+          <p class="boring-contact-links">
+            <a class="boring-contact-primary" href="mailto:1rydler@gmail.com">1rydler@gmail.com</a>
+            <a href="https://github.com/Rydl3r" target="_blank" rel="noopener">GitHub<span class="visually-hidden"> (opens in a new tab)</span></a>
+            <a href="https://www.linkedin.com/in/rydler/" target="_blank" rel="noopener">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a>
+          </p>
+        </div>
+
         <p class="copyright">
-          © 1999–<span id="current-year">2026</span> Ivan Mukoied. Don't steal my graphics!!!
+          © 1999–<span id="current-year">2026</span> Ivan Mukoied.<span class="fun-only"> Don't steal my graphics!!!</span>
         </p>
       </footer>
     </div>
 
-    <p class="cheat-toast" id="cheat-toast" role="status"></p>
+    <p class="cheat-toast fun-only" id="cheat-toast" role="status"></p>
 
     <!-- Scripts -->
     <script src="scripts/main.js"></script>
     <script src="scripts/midi-player.js"></script>
+    <script src="scripts/screensaver.js"></script>
   </body>
 </html>
