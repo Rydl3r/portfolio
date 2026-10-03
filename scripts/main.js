@@ -1,270 +1,259 @@
-/**
- * Ivan Mukoied - Frontend Developer Portfolio
- * Main JavaScript - Handles theme, animations, and interactive terminal
- */
+// All page content lives in index.html. This file only adds the optional,
+// interactive extras: the motion toggle, the visitor counter, the guestbook,
+// the dates, the fortune cookie, the tab-title trick, the cheat code and the
+// sparkle trail. The music player lives in scripts/midi-player.js.
+// Without JavaScript the page still shows everything.
 
-(function () {
-  'use strict';
+const MOTION_KEY = "ivan-motion-paused";
+const VISITS_KEY = "ivan-visits";
+const GUESTBOOK_KEY = "ivan-guestbook";
+const STARTING_VISITS = 5500;
+const MAX_GUESTBOOK_ENTRIES = 20;
+const SPARKLE_SYMBOLS = ["✦", "★", "✧", "·"];
 
-  // ============================================
-  // UTILITIES
-  // ============================================
-  const $ = (selector) => document.querySelector(selector);
-  const $$ = (selector) => document.querySelectorAll(selector);
-  const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const randomFrom = (arr) => arr[Math.floor(Math.random() * arr.length)];
+// ---------- Helpers ----------
 
-  // ============================================
-  // THEME MANAGEMENT
-  // ============================================
-  const ThemeManager = {
-    STORAGE_KEY: 'portfolio-theme',
-    DARK: 'dark',
-    LIGHT: 'light',
+function escapeHtml(text) {
+  const replacements = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" };
+  return text.replace(/[&<>"]/g, (char) => replacements[char]);
+}
 
-    init() {
-      this.applyInitialTheme();
-      this.bindEvents();
-    },
+// localStorage can throw (private mode, blocked storage), so wrap every access.
+function readStorage(key, fallback) {
+  try {
+    const value = localStorage.getItem(key);
+    return value === null ? fallback : value;
+  } catch {
+    return fallback;
+  }
+}
 
-    applyInitialTheme() {
-      const saved = localStorage.getItem(this.STORAGE_KEY);
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      this.setTheme(saved || (prefersDark ? this.DARK : this.LIGHT), false);
-    },
+function writeStorage(key, value) {
+  try {
+    localStorage.setItem(key, value);
+  } catch {
+    // Storage unavailable: the feature just won't persist.
+  }
+}
 
-    setTheme(theme, persist = true) {
-      document.documentElement.setAttribute('data-theme', theme);
-      if (persist) localStorage.setItem(this.STORAGE_KEY, theme);
-      MatrixRain.render();
-    },
+// ---------- Motion toggle ----------
+// Blinking and scrolling text must be stoppable (WCAG 2.2.2), so this
+// button freezes every animation and remembers the choice.
 
-    toggle() {
-      const current = document.documentElement.getAttribute('data-theme');
-      this.setTheme(current === this.DARK ? this.LIGHT : this.DARK);
-    },
+function isMotionPaused() {
+  return document.documentElement.classList.contains("motion-paused");
+}
 
-    bindEvents() {
-      $('#theme-toggle')?.addEventListener('click', () => this.toggle());
-      
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        if (!localStorage.getItem(this.STORAGE_KEY)) {
-          this.setTheme(e.matches ? this.DARK : this.LIGHT, false);
-        }
-      });
-    }
-  };
+function setupMotionToggle() {
+  const button = document.getElementById("motion-toggle");
 
-  // ============================================
-  // MATRIX RAIN EFFECT
-  // ============================================
-  const MatrixRain = {
-    CHARS: '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン',
-    COLUMN_WIDTH: 25,
-
-    render() {
-      const container = $('#matrix-bg');
-      if (!container || prefersReducedMotion()) {
-        if (container) container.innerHTML = '';
-        return;
-      }
-
-      const columnCount = Math.floor(window.innerWidth / this.COLUMN_WIDTH);
-      container.innerHTML = '';
-
-      for (let i = 0; i < columnCount; i++) {
-        const column = document.createElement('div');
-        column.className = 'matrix-column';
-        column.style.cssText = `
-          left: ${(i / columnCount) * 100}%;
-          animation-duration: ${10 + Math.random() * 10}s;
-          animation-delay: ${Math.random() * 10}s;
-        `;
-        column.setAttribute('aria-hidden', 'true');
-        column.textContent = this.generateColumnText();
-        container.appendChild(column);
-      }
-    },
-
-    generateColumnText() {
-      const length = 10 + Math.floor(Math.random() * 20);
-      return Array.from({ length }, () => randomFrom(this.CHARS)).join('');
-    }
-  };
-
-  // ============================================
-  // SCROLL ANIMATIONS
-  // ============================================
-  const ScrollAnimations = {
-    init() {
-      if (prefersReducedMotion()) return;
-
-      const observer = new IntersectionObserver(
-        (entries) => entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-          }
-        }),
-        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-      );
-
-      $$('.section, .project-card, .experience-item, .skill-category')
-        .forEach(el => observer.observe(el));
-    }
-  };
-
-  // ============================================
-  // INTERACTIVE TERMINAL
-  // ============================================
-  const Terminal = {
-    history: [],
-    historyIndex: -1,
-
-    commands: {
-      help: () => `
-        <p class="success">🎮 Secret Terminal Commands:</p>
-        <p>• coffee, matrix, hack, flip, unflip</p>
-        <p>• party, joke, sudo, exit, clear</p>
-        <p>• ls, cat, rm, pwd, whoami, vim</p>
-      `,
-      coffee: () => `<p class="success">${randomFrom([
-        '☕ CRITICAL: Coffee reserves depleted! Developer may become unresponsive.',
-        '☕ Coffee.exe is running at 200% capacity.',
-        '☕ Error 418: I\'m a teapot. Wait, wrong protocol.',
-        '☕ Loading productivity... [████████░░] 80% (needs more coffee)',
-        '☕ Blood type: Espresso positive',
-        '☕ Coffee count today: NaN (lost count after the 5th)',
-        '☕ brew install more-coffee... Installation successful!'
-      ])}</p>`,
-      matrix: () => `<p class="success">${randomFrom([
-        '🔴 You took the red pill... Welcome to the real world, Neo.',
-        '🔵 You took the blue pill... The story ends. You wake up believing whatever you want.',
-        '💊 You tried to take both pills... SEGMENTATION FAULT',
-        '🟣 You mixed them? That\'s not how this works...'
-      ])}</p>`,
-      hack: () => `
-        <p class="success">INITIATING HACK SEQUENCE...</p>
-        <p>Accessing mainframe... ████████████ 100%</p>
-        <p>Bypassing firewall... ████████████ 100%</p>
-        <p>Downloading secrets... ERROR 403: Nice try, hackerman 😎</p>
-      `,
-      flip: () => '(╯°□°)╯︵ ┻━┻  <span class="error">TABLE FLIPPED!</span>',
-      unflip: () => '┬─┬ノ( º _ ºノ)  <span class="success">Table restored. Crisis averted.</span>',
-      party: () => `<p class="success">${randomFrom([
-        '🎉🎊🪩 PARTY MODE ACTIVATED! 🪩🎊🎉',
-        '🕺💃 The code compiles... TIME TO CELEBRATE! 💃🕺',
-        '�� *plays lo-fi beats to code/relax to* 🎵',
-        '🎮 Achievement Unlocked: Found the party command!'
-      ])}</p>`,
-      joke: () => `<p class="success">${randomFrom([
-        'Why do programmers prefer dark mode? Because light attracts bugs! 🪲',
-        'A SQL query walks into a bar, walks up to two tables and asks... "Can I join you?"',
-        'There are only 10 types of people: those who understand binary and those who don\'t.',
-        '!false — It\'s funny because it\'s true.',
-        'A programmer\'s wife tells him: "Go to the store and buy milk. If they have eggs, get a dozen." He returns with 12 cartons of milk.',
-        'Why did the developer go broke? Because he used up all his cache! 💸',
-        'It works on my machine! ¯\\_(ツ)_/¯'
-      ])}</p>`,
-      sudo: (args) => {
-        const cmd = args.join(' ');
-        if (cmd.includes('make') && cmd.includes('sandwich')) {
-          return '<p class="success">🥪 Okay, here\'s your sandwich! (sudo privileges accepted)</p>';
-        }
-        if (cmd.includes('rm') && cmd.includes('-rf')) {
-          return '<p class="error">🚨 NICE TRY! You almost deleted everything... almost.</p>';
-        }
-        return '<p class="error">Permission denied. This incident will be reported... to no one. 😄</p>';
-      },
-      exit: () => `<p class="error">${randomFrom([
-        'There is no escape. You belong to the terminal now.',
-        'exit? In this economy? Nah, stay a while.',
-        'Segmentation fault (core dumped)... just kidding, you\'re stuck here.',
-        'The terminal has grown attached to you. It would miss you.'
-      ])}</p>`,
-      ls: () => '<p>secrets.txt  definitely_not_passwords.txt  cat_pictures/  node_modules/</p>',
-      cat: (args) => args[0] === 'secrets.txt' 
-        ? '<p class="error">Nice try! The secrets are safe... for now.</p>'
-        : '<p>😺 Meow! (You didn\'t specify a file, so here\'s a cat)</p>',
-      rm: () => '<p class="error">🚫 rm is disabled. We don\'t delete things here, we just add more features.</p>',
-      pwd: () => '<p>/home/ivan/secret-lair/you-found-the-terminal</p>',
-      whoami: () => '<p class="success">You\'re awesome, that\'s who! 🌟</p>',
-      hello: () => '<p class="success">Hello there, friend! 👋 Welcome to the secret terminal zone!</p>',
-      hi: () => '<p class="success">Hey! 👋 Glad you found this little Easter egg!</p>',
-      vim: () => '<p class="error">You opened vim... and now you can never leave. Press ESC 47 times to try.</p>',
-      emacs: () => '<p>Emacs loaded! ...along with a full operating system apparently.</p>',
-      clear: () => ''
-    },
-
-    execute(input) {
-      const [cmd, ...args] = input.trim().toLowerCase().split(' ');
-      if (!cmd) return '';
-      
-      if (this.commands[cmd]) {
-        return this.commands[cmd](args);
-      }
-      
-      return `<p class="error">${randomFrom([
-        `Command '${cmd}' not found. But hey, you're exploring! Try 'help' 🔍`,
-        `'${cmd}'? Never heard of it. Type 'help' for the secret menu.`,
-        `bash: ${cmd}: command not found (but your curiosity is appreciated!)`,
-        `${cmd}? Is that a new JavaScript framework? Type 'help' for actual commands.`
-      ])}</p>`;
-    },
-
-    init() {
-      const input = $('#terminal-input');
-      const output = $('#terminal-output');
-      if (!input || !output) return;
-
-      input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          e.preventDefault();
-          const cmd = input.value.trim();
-          if (cmd) {
-            this.history.unshift(cmd);
-            this.historyIndex = -1;
-            output.innerHTML = cmd === 'clear' ? '' : this.execute(cmd);
-            input.value = '';
-          }
-        } else if (e.key === 'ArrowUp' && this.historyIndex < this.history.length - 1) {
-          e.preventDefault();
-          input.value = this.history[++this.historyIndex];
-        } else if (e.key === 'ArrowDown') {
-          e.preventDefault();
-          input.value = this.historyIndex > 0 ? this.history[--this.historyIndex] : (this.historyIndex = -1, '');
-        }
-      });
-
-      $('#terminal-footer')?.addEventListener('click', () => input.focus());
-    }
-  };
-
-  // ============================================
-  // INITIALIZATION
-  // ============================================
-  function init() {
-    ThemeManager.init();
-    MatrixRain.render();
-    ScrollAnimations.init();
-    Terminal.init();
-
-    // Debounced resize handler
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => MatrixRain.render(), 250);
-    });
-
-    // Reduced motion preference changes
-    window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', () => {
-      MatrixRain.render();
-    });
+  function apply(paused) {
+    document.documentElement.classList.toggle("motion-paused", paused);
+    button.setAttribute("aria-pressed", String(paused));
+    button.textContent = paused ? "[ RESUME THE MADNESS ]" : "[ STOP THE MADNESS ]";
   }
 
-  // Run when DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
+  const prefersReducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const saved = readStorage(MOTION_KEY, null);
+  apply(saved === null ? prefersReducedMotion : saved === "true");
+
+  button.addEventListener("click", () => {
+    const paused = !isMotionPaused();
+    apply(paused);
+    writeStorage(MOTION_KEY, String(paused));
+  });
+}
+
+// ---------- Visitor counter (counts visits in this browser only) ----------
+
+function setupVisitorCounter() {
+  const counter = document.getElementById("counter");
+  const visits = Number(readStorage(VISITS_KEY, STARTING_VISITS)) + 1;
+  writeStorage(VISITS_KEY, visits);
+
+  const digits = String(visits).padStart(7, "0").split("");
+  counter.innerHTML = digits.map((digit) => `<span aria-hidden="true">${digit}</span>`).join("");
+  counter.setAttribute("aria-label", `You are visitor number ${visits}`);
+}
+
+// ---------- Guestbook (entries are saved in this browser only) ----------
+// The joke entries are written in index.html; visitors' own entries go above them.
+
+function setupGuestbook() {
+  const form = document.getElementById("guestbook-form");
+  const nameInput = document.getElementById("guestbook-name");
+  const messageInput = document.getElementById("guestbook-message");
+  const list = document.getElementById("guestbook-entries");
+
+  let entries = [];
+  try {
+    entries = JSON.parse(readStorage(GUESTBOOK_KEY, "[]"));
+  } catch {
+    entries = [];
   }
-})();
+
+  function addToPage(entry) {
+    const item = document.createElement("li");
+    item.className = "entry";
+    item.innerHTML = `<b>${escapeHtml(entry.name)}</b> wrote: ${escapeHtml(entry.message)}`;
+    list.prepend(item);
+  }
+
+  // Oldest first, so the newest ends up on top.
+  entries.slice().reverse().forEach(addToPage);
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const entry = { name: nameInput.value.trim(), message: messageInput.value.trim() };
+    entries = [entry, ...entries].slice(0, MAX_GUESTBOOK_ENTRIES);
+    writeStorage(GUESTBOOK_KEY, JSON.stringify(entries));
+    addToPage(entry);
+
+    nameInput.value = "";
+    messageInput.value = "";
+  });
+}
+
+// ---------- Dates ----------
+// index.html has fixed fallback dates; this keeps them current.
+// ("Last updated: today" is part of the 1999 joke.)
+
+function updateDates() {
+  const now = new Date();
+  const lastUpdated = document.getElementById("last-updated");
+
+  document.getElementById("current-year").textContent = now.getFullYear();
+  lastUpdated.textContent = now.toLocaleDateString("en-US");
+  lastUpdated.setAttribute("datetime", now.toISOString().slice(0, 10));
+}
+
+// ---------- Fortune cookie ----------
+// index.html shows the first fortune; the button cracks a new one.
+
+const FORTUNES = [
+  "Today's lucky z-index: 9999.",
+  "You will find the bug. It will be a missing semicolon.",
+  "A merge conflict is in your future. Stay calm.",
+  "The cache is lying to you. Hard refresh.",
+  "It works on your machine. Ship your machine.",
+  "You will center a div on the first try. (Just kidding.)",
+  "Your next npm install will download half the internet.",
+  "Naming things is hard. You will call it thing2 and regret it.",
+  "0.1 + 0.2 will still not equal 0.3. Make peace with it.",
+  "The bug is not in the framework. (It's in the framework.)",
+  "A wild console.log appears in production.",
+  "Someone will ask you to make the logo bigger.",
+  "You will close 47 browser tabs and feel nothing.",
+  "Friday deploys bring great adventure.",
+];
+
+function setupFortuneCookie() {
+  const text = document.getElementById("fortune-text");
+  const button = document.getElementById("fortune-button");
+  let index = 0;
+
+  button.addEventListener("click", () => {
+    // Step by a random amount so it never repeats the current one
+    index = (index + 1 + Math.floor(Math.random() * (FORTUNES.length - 1))) % FORTUNES.length;
+    text.textContent = FORTUNES[index];
+  });
+}
+
+// ---------- Tab title trick ----------
+
+function setupTabTitle() {
+  const original = document.title;
+  document.addEventListener("visibilitychange", () => {
+    document.title = document.hidden ? "👀 come back!! the page misses you" : original;
+  });
+}
+
+// ---------- Cheat code ----------
+// The Konami code (↑↑↓↓←→←→BA) or tapping the sidebar floppy 5 times.
+
+const KONAMI = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
+
+function setupCheatCode() {
+  const toast = document.getElementById("cheat-toast");
+  let progress = 0;
+  let taps = 0;
+  let tapTimer = null;
+  let toastTimer = null;
+
+  function activate() {
+    toast.textContent = "CHEAT MODE ACTIVATED: +30 lives, infinite coffee";
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove("show"), 4000);
+
+    if (isMotionPaused()) return;
+    for (let i = 0; i < 40; i++) {
+      const floppy = document.createElement("span");
+      floppy.className = "falling-floppy";
+      floppy.setAttribute("aria-hidden", "true");
+      floppy.textContent = "💾";
+      floppy.style.left = `${Math.random() * 100}vw`;
+      floppy.style.animationDuration = `${2 + Math.random() * 2}s`;
+      floppy.style.animationDelay = `${Math.random() * 1.5}s`;
+      document.body.appendChild(floppy);
+      setTimeout(() => floppy.remove(), 5000);
+    }
+  }
+
+  window.addEventListener("keydown", (event) => {
+    const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
+    progress = key === KONAMI[progress] ? progress + 1 : key === KONAMI[0] ? 1 : 0;
+    if (progress === KONAMI.length) {
+      progress = 0;
+      activate();
+    }
+  });
+
+  document.getElementById("floppy").addEventListener("click", () => {
+    taps++;
+    clearTimeout(tapTimer);
+    tapTimer = setTimeout(() => (taps = 0), 1500);
+    if (taps === 5) {
+      taps = 0;
+      activate();
+    }
+  });
+}
+
+// ---------- Sparkle cursor trail ----------
+
+function setupSparkleTrail() {
+  const MIN_INTERVAL_MS = 40;
+  let lastSparkleTime = 0;
+
+  window.addEventListener("mousemove", (event) => {
+    if (isMotionPaused()) return;
+
+    const now = performance.now();
+    if (now - lastSparkleTime < MIN_INTERVAL_MS) return;
+    lastSparkleTime = now;
+
+    const sparkle = document.createElement("span");
+    sparkle.className = "spark";
+    sparkle.setAttribute("aria-hidden", "true");
+    sparkle.textContent = SPARKLE_SYMBOLS[Math.floor(Math.random() * SPARKLE_SYMBOLS.length)];
+    sparkle.style.left = `${event.clientX}px`;
+    sparkle.style.top = `${event.clientY}px`;
+    sparkle.style.color = `hsl(${Math.random() * 360}, 100%, 70%)`;
+
+    document.body.appendChild(sparkle);
+    setTimeout(() => sparkle.remove(), 1000);
+  });
+}
+
+// ---------- Init ----------
+
+setupMotionToggle();
+setupVisitorCounter();
+setupGuestbook();
+updateDates();
+setupFortuneCookie();
+setupTabTitle();
+setupCheatCode();
+setupSparkleTrail();

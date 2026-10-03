@@ -3,45 +3,57 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ivan Mukoied | Frontend Developer</title>
+    <title>Ivan Mukoied | Senior Frontend Developer</title>
     <meta
       name="description"
-      content="Frontend developer who's shipped products to 550,000+ businesses and 100K+ users. Currently making sure a gaming platform works perfectly on every screen, browser, and device imaginable."
+      content="Senior Frontend Developer in Warsaw. I build fast, reliable web platforms with Next.js, React and TypeScript, currently the global website at Nearmap."
     />
     <meta name="author" content="Ivan Mukoied" />
     <meta
       name="keywords"
       content="Frontend Developer, React Developer, TypeScript, Next.js, JavaScript, Web Development, Warsaw, Portfolio"
     />
-    <meta
-      name="theme-color"
-      content="#0d1117"
-      media="(prefers-color-scheme: dark)"
-    />
-    <meta
-      name="theme-color"
-      content="#fafbfc"
-      media="(prefers-color-scheme: light)"
-    />
+    <meta name="theme-color" content="#000010" />
+    <link rel="canonical" href="https://rydl3r-portfolio.vercel.app/" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Ivan Mukoied | Frontend Developer" />
+    <!-- Link previews (LinkedIn, Slack, iMessage, Facebook) -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Ivan Mukoied" />
+    <meta property="og:url" content="https://rydl3r-portfolio.vercel.app/" />
+    <meta property="og:title" content="Ivan Mukoied | Senior Frontend Developer" />
     <meta
       property="og:description"
-      content="Frontend developer who's shipped products to 550,000+ businesses. Currently owning cross-platform reliability for a high-traffic gaming platform."
+      content="Senior Frontend Developer in Warsaw building fast, reliable web platforms. Currently at Nearmap."
     />
-    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://rydl3r-portfolio.vercel.app/assets/images/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Ivan's Homepage: Ivan Mukoied, Senior Frontend Developer in Warsaw, in a retro 1999 web style"
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta property="profile:first_name" content="Ivan" />
+    <meta property="profile:last_name" content="Mukoied" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/icons/favicon.png" />
+    <!-- Link previews on X / Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ivan Mukoied | Senior Frontend Developer" />
+    <meta
+      name="twitter:description"
+      content="Senior Frontend Developer in Warsaw building fast, reliable web platforms. Currently at Nearmap."
+    />
+    <meta name="twitter:image" content="https://rydl3r-portfolio.vercel.app/assets/images/og-image.png" />
+
+    <!-- Favicon: pixel-art floppy disk (SVG for modern browsers, PNG fallback, iOS home screen icon) -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=VT323&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=VT323&display=swap" rel="stylesheet" />
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css" />
@@ -52,10 +64,12 @@
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Ivan Mukoied",
-        "jobTitle": "Frontend Developer",
+        "url": "https://rydl3r-portfolio.vercel.app/",
+        "image": "https://rydl3r-portfolio.vercel.app/assets/images/profile.jpeg",
+        "jobTitle": "Senior Frontend Developer",
         "worksFor": {
           "@type": "Organization",
-          "name": "HumanSpark"
+          "name": "Nearmap"
         },
         "address": {
           "@type": "PostalAddress",
@@ -68,616 +82,714 @@
         ],
         "knowsAbout": [
           "React",
+          "Next.js",
           "TypeScript",
           "JavaScript",
-          "Next.js",
+          "Angular",
           "Frontend Development",
-          "Web Development"
+          "Web Performance",
+          "Web Accessibility",
+          "CI/CD"
         ],
         "email": "1rydler@gmail.com"
       }
     </script>
   </head>
   <body>
-    <!-- Skip Link for Accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <!-- CRT Effects -->
-    <div class="crt-overlay" aria-hidden="true"></div>
+    <div class="construction" aria-hidden="true">
+      <span>🚧 UNDER CONSTRUCTION SINCE 2021 🚧</span>
+    </div>
 
-    <!-- Matrix Background -->
-    <div class="matrix-bg" id="matrix-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <!-- Header -->
+      <header>
+        <div class="marquee" aria-hidden="true">
+          <span>
+            ★ WELCOME TO MY HOMEPAGE!!! ★ I'm Ivan and I make websites ★ Please sign my guestbook
+            ★ Don't forget to bookmark this page!!! ★ Turn your speakers on for the sidebar jukebox ★
+          </span>
+        </div>
 
-    <div class="terminal" role="main" id="main-content">
-      <!-- Terminal Header -->
-      <header class="terminal__header" role="banner">
-        <span
-          class="terminal__dot terminal__dot--red"
-          aria-hidden="true"
-        ></span>
-        <span
-          class="terminal__dot terminal__dot--yellow"
-          aria-hidden="true"
-        ></span>
-        <span
-          class="terminal__dot terminal__dot--green"
-          aria-hidden="true"
-        ></span>
-        <button
-          id="theme-toggle"
-          class="theme-toggle"
-          aria-label="Toggle dark/light theme"
-          title="Switch theme"
-        >
-          <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+        <h1>
+          <span aria-hidden="true">~*~ </span>Ivan's Homepage<span aria-hidden="true"> ~*~</span>
+        </h1>
+        <p class="subtitle">
+          <span aria-hidden="true">&gt;&gt; </span>Senior Frontend Developer
+          <span aria-hidden="true">&lt;&lt;</span> Warsaw, Poland
+          <span aria-hidden="true">&lt;&lt;</span>
+          <span class="blink">ONLINE NOW</span>
+        </p>
+
+        <button type="button" class="motion-toggle" id="motion-toggle" aria-pressed="false">
+          [ STOP THE MADNESS ]
         </button>
       </header>
 
-      <div class="terminal__body">
-        <!-- ASCII Art Name -->
-        <pre
-          class="ascii-art"
-          role="img"
-          aria-label="Ivan Mukoied"
-          tabindex="0"
-        >
-██╗██╗   ██╗ █████╗ ███╗   ██╗    ███╗   ███╗██╗   ██╗██╗  ██╗ ██████╗ ██╗███████╗██████╗ 
-██║██║   ██║██╔══██╗████╗  ██║    ████╗ ████║██║   ██║██║ ██╔╝██╔═══██╗██║██╔════╝██╔══██╗
-██║██║   ██║███████║██╔██╗ ██║    ██╔████╔██║██║   ██║█████╔╝ ██║   ██║██║█████╗  ██║  ██║
-██║╚██╗ ██╔╝██╔══██║██║╚██╗██║    ██║╚██╔╝██║██║   ██║██╔═██╗ ██║   ██║██║██╔══╝  ██║  ██║
-██║ ╚████╔╝ ██║  ██║██║ ╚████║    ██║ ╚═╝ ██║╚██████╔╝██║  ██╗╚██████╔╝██║███████╗██████╔╝
-╚═╝  ╚═══╝  ╚═╝  ╚═╝╚═╝  ╚═══╝    ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝╚══════╝╚═════╝ 
-        </pre>
+      <hr class="rainbow" />
 
-        <!-- About Section -->
-        <section id="about" aria-labelledby="about-heading">
-          <div class="line">
-            <span class="prompt" aria-hidden="true">ivan@dev:~$</span>
-            <span class="command"> whoami</span>
-          </div>
-          <div class="output">
-            <p class="line"><span class="label">Name:</span> Ivan Mukoied</p>
-            <p class="line">
-              <span class="label">Role:</span> Frontend Developer
-            </p>
-            <p class="line">
-              <span class="label">Location:</span> Warsaw, Poland (Building
-              globally)
-            </p>
-            <p class="line">
-              <span class="label">Status:</span>
-              <span class="status-indicator" aria-label="Online">████</span>
-              ONLINE
-            </p>
-          </div>
-          <h1 id="about-heading" class="visually-hidden">
-            Ivan Mukoied - Frontend Developer
-          </h1>
+      <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar comic" aria-label="Sidebar">
+          <nav aria-labelledby="nav-title">
+            <h2 class="nav-title" id="nav-title">~ NAVIGATION ~</h2>
+            <ul class="nav-links">
+              <li><a href="#about"><span aria-hidden="true">➤ </span>About Me</a></li>
+              <li><a href="#jobs"><span aria-hidden="true">➤ </span>My Jobs</a></li>
+              <li>
+                <a href="#projects">
+                  <span aria-hidden="true">➤ </span>Kool Projects
+                  <span class="new-badge" aria-hidden="true">NEW!</span>
+                </a>
+              </li>
+              <li><a href="#skills"><span aria-hidden="true">➤ </span>Skillz</a></li>
+              <li><a href="#guestbook"><span aria-hidden="true">➤ </span>Guestbook</a></li>
+              <li><a href="mailto:1rydler@gmail.com"><span aria-hidden="true">➤ </span>E-Mail Me!</a></li>
+            </ul>
+          </nav>
 
-          <div class="line">
-            <span class="prompt" aria-hidden="true">ivan@dev:~$</span>
-            <span class="command"> cat about.txt</span>
-          </div>
-          <div class="output">
-            <p class="line">
-              5+ years turning coffee into code and Figma files into things
-              people actually use.
-            </p>
-            <p class="line">
-              I've shipped products to 550,000+ businesses, built 5
-              microservices that work
-            </p>
-            <p class="line">
-              together without killing each other, and migrated a legacy
-              codebase without
-            </p>
-            <p class="line">
-              breaking prod. Currently at HumanSpark, making sure a gaming
-              platform
-            </p>
-            <p class="line">
-              works flawlessly on every device, browser, and network condition
-              you can throw at it.
-            </p>
-          </div>
-        </section>
+          <!-- Floppy, visitor counter and jukebox: stacked on desktop, side by side on phones -->
+          <div class="sidebar-widgets">
+            <span class="floppy" id="floppy" aria-hidden="true">💾</span>
 
-        <!-- Skills Section -->
-        <section id="skills" class="section" aria-labelledby="skills-heading">
-          <div class="line">
-            <span class="prompt" aria-hidden="true">ivan@dev:~$</span>
-            <span class="command"> ls ./skills/</span>
-          </div>
-          <h2 id="skills-heading" class="visually-hidden">Skills</h2>
-          <div class="output">
-            <div class="skills-grid">
-              <article class="skill-category">
-                <h3 class="skill-category__title">// Core</h3>
-                <ul class="skill-list" role="list">
-                  <li class="skill-tag">React</li>
-                  <li class="skill-tag">TypeScript</li>
-                  <li class="skill-tag">JavaScript</li>
-                  <li class="skill-tag">Next.js</li>
-                  <li class="skill-tag">HTML5</li>
-                  <li class="skill-tag">CSS3</li>
-                  <li class="skill-tag">Vue.js</li>
-                  <li class="skill-tag">Astro</li>
-                </ul>
-              </article>
-              <article class="skill-category">
-                <h3 class="skill-category__title">// State & Data</h3>
-                <ul class="skill-list" role="list">
-                  <li class="skill-tag">Redux</li>
-                  <li class="skill-tag">Tanstack Query</li>
-                  <li class="skill-tag">Zustand</li>
-                  <li class="skill-tag">Context API</li>
-                  <li class="skill-tag">GraphQL</li>
-                  <li class="skill-tag">REST APIs</li>
-                  <li class="skill-tag">SWR</li>
-                </ul>
-              </article>
-              <article class="skill-category">
-                <h3 class="skill-category__title">// Styling</h3>
-                <ul class="skill-list" role="list">
-                  <li class="skill-tag">Material UI</li>
-                  <li class="skill-tag">Tailwind CSS</li>
-                  <li class="skill-tag">Shadcn/ui</li>
-                  <li class="skill-tag">Chakra UI</li>
-                  <li class="skill-tag">SCSS</li>
-                  <li class="skill-tag">Styled Components</li>
-                  <li class="skill-tag">CSS Modules</li>
-                  <li class="skill-tag">Framer Motion</li>
-                </ul>
-              </article>
-              <article class="skill-category">
-                <h3 class="skill-category__title">// Testing & Tools</h3>
-                <ul class="skill-list" role="list">
-                  <li class="skill-tag">Jest</li>
-                  <li class="skill-tag">Cypress</li>
-                  <li class="skill-tag">Playwright</li>
-                  <li class="skill-tag">React Testing Library</li>
-                  <li class="skill-tag">Git</li>
-                  <li class="skill-tag">Webpack</li>
-                  <li class="skill-tag">Vite</li>
-                  <li class="skill-tag">Turborepo</li>
-                </ul>
-              </article>
-              <article class="skill-category">
-                <h3 class="skill-category__title">// Backend & DevOps</h3>
-                <ul class="skill-list" role="list">
-                  <li class="skill-tag">Node.js</li>
-                  <li class="skill-tag">Express</li>
-                  <li class="skill-tag">Firebase</li>
-                  <li class="skill-tag">PostgreSQL</li>
-                  <li class="skill-tag">Docker</li>
-                  <li class="skill-tag">Vercel</li>
-                </ul>
-              </article>
+            <div class="visitor">
+              <p class="visitor-label" aria-hidden="true">You are visitor #</p>
+              <p class="centered">
+                <span class="counter" id="counter" role="img" aria-label="You are visitor number 5500">
+                  <span aria-hidden="true">0</span><span aria-hidden="true">0</span><span aria-hidden="true">0</span><span aria-hidden="true">5</span><span aria-hidden="true">5</span><span aria-hidden="true">0</span><span aria-hidden="true">0</span>
+                </span>
+              </p>
             </div>
+
+            <section class="midi" aria-label="Music player">
+              <div class="midi-screen" id="midi-screen">
+                <span id="midi-title">portfolio.mid</span>
+              </div>
+              <div class="midi-controls">
+                <button type="button" id="midi-play" aria-label="Play">▶</button>
+                <button type="button" id="midi-next" aria-label="Next track">⏭</button>
+                <span class="midi-viz" id="midi-viz" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                <span class="midi-track" id="midi-track">1/11</span>
+              </div>
+            </section>
           </div>
-        </section>
+        </aside>
 
-        <!-- Experience Section -->
-        <section
-          id="experience"
-          class="section"
-          aria-labelledby="experience-heading"
-        >
-          <div class="line">
-            <span class="prompt" aria-hidden="true">ivan@dev:~$</span>
-            <span class="command"> cat ./experience/*.log</span>
-          </div>
-          <h2 id="experience-heading" class="visually-hidden">Experience</h2>
-          <div class="output">
-            <article class="experience-item">
-              <header class="experience-item__header">
-                <h3 class="experience-item__company">> HumanSpark</h3>
-                <time class="experience-item__period" datetime="2025-08"
-                  >Aug 2025 - Present</time
-                >
-              </header>
-              <p class="experience-item__location">📍 Cyprus (Remote)</p>
-              <p class="experience-item__desc">
-                Own the cross-platform reliability of a high-traffic gaming
-                platform. If it has a screen, I make sure the product works on
-                it - every resolution, browser, network condition, and device
-                type. Pixel-perfect layouts, performance optimization, and the
-                kind of cross-browser testing that keeps you humble.
-              </p>
-              <ul
-                class="experience-item__tech"
-                role="list"
-                aria-label="Technologies used"
-              >
-                <li class="tech-tag">Angular</li>
-                <li class="tech-tag">TypeScript</li>
-                <li class="tech-tag">HTML</li>
-                <li class="tech-tag">CSS</li>
-              </ul>
-            </article>
-
-            <article class="experience-item">
-              <header class="experience-item__header">
-                <h3 class="experience-item__company">> GlobalLogic</h3>
-                <time class="experience-item__period" datetime="2024-04/2025-08"
-                  >Apr 2024 - Aug 2025</time
-                >
-              </header>
-              <p class="experience-item__location">📍 Kyiv (Remote)</p>
-              <p class="experience-item__desc">
-                Migrated a legacy JSP/Backbone/Marionette codebase to modern
-                React for an accounts payable platform used by 550,000+
-                businesses processing millions in daily transactions. Security
-                and accessibility weren't optional - every feature got rigorous
-                testing. Achieved 95% improvement in cross-browser
-                compatibility.
-              </p>
-              <ul
-                class="experience-item__tech"
-                role="list"
-                aria-label="Technologies used"
-              >
-                <li class="tech-tag">React</li>
-                <li class="tech-tag">TypeScript</li>
-                <li class="tech-tag">Tanstack Query</li>
-                <li class="tech-tag">Jest</li>
-                <li class="tech-tag">Cypress</li>
-              </ul>
-            </article>
-
-            <article class="experience-item">
-              <header class="experience-item__header">
-                <h3 class="experience-item__company">> Uspacy</h3>
-                <time class="experience-item__period" datetime="2022-09/2024-04"
-                  >Sep 2022 - Apr 2024</time
-                >
-              </header>
-              <p class="experience-item__location">📍 Kyiv (Remote)</p>
-              <p class="experience-item__desc">
-                Built 5+ independently deployable microservices (CRM, Chat, Task
-                Management, Telephony) for an all-in-one business platform
-                serving 100K+ users. Used Module Federation to keep services
-                loosely coupled but seamlessly integrated. Integrated
-                third-party telephony solutions. 90%+ test coverage across the
-                board.
-              </p>
-              <ul
-                class="experience-item__tech"
-                role="list"
-                aria-label="Technologies used"
-              >
-                <li class="tech-tag">React</li>
-                <li class="tech-tag">Next.js</li>
-                <li class="tech-tag">TypeScript</li>
-                <li class="tech-tag">Redux</li>
-                <li class="tech-tag">Module Federation</li>
-              </ul>
-            </article>
-
-            <article class="experience-item">
-              <header class="experience-item__header">
-                <h3 class="experience-item__company">> Fast&Curious</h3>
-                <time class="experience-item__period" datetime="2022-01/2022-09"
-                  >Jan 2022 - Sep 2022</time
-                >
-              </header>
-              <p class="experience-item__location">📍 Kyiv (Remote)</p>
-              <p class="experience-item__desc">
-                Built "Feodal" - a GIS platform for agricultural land
-                management. Pixel-perfect geospatial visualizations, automated
-                audits, real-time monitoring for thousands of hectares. Also
-                worked on "Re:Create", a humanitarian project rebuilding
-                war-affected cities. Migrated the entire codebase from
-                class-based to functional React.
-              </p>
-              <ul
-                class="experience-item__tech"
-                role="list"
-                aria-label="Technologies used"
-              >
-                <li class="tech-tag">React</li>
-                <li class="tech-tag">TypeScript</li>
-                <li class="tech-tag">Mapbox</li>
-                <li class="tech-tag">Firebase</li>
-              </ul>
-            </article>
-
-            <article class="experience-item">
-              <header class="experience-item__header">
-                <h3 class="experience-item__company">> Freelance</h3>
-                <time class="experience-item__period" datetime="2021-01/2022-01"
-                  >Jan 2021 - Jan 2022</time
-                >
-              </header>
-              <p class="experience-item__location">📍 Kyiv (Remote)</p>
-              <p class="experience-item__desc">
-                The "learn by doing" phase. 20+ projects on international
-                platforms - from landing pages to fullstack apps. 100% client
-                satisfaction (allegedly). This is where I learned that
-                communication matters as much as code, and that "one small
-                change" is never small.
-              </p>
-              <ul
-                class="experience-item__tech"
-                role="list"
-                aria-label="Technologies used"
-              >
-                <li class="tech-tag">React</li>
-                <li class="tech-tag">JavaScript</li>
-                <li class="tech-tag">HTML</li>
-                <li class="tech-tag">CSS</li>
-                <li class="tech-tag">Firebase</li>
-              </ul>
-            </article>
-          </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section
-          id="projects"
-          class="section"
-          aria-labelledby="projects-heading"
-        >
-          <div class="line">
-            <span class="prompt" aria-hidden="true">ivan@dev:~$</span>
-            <span class="command"> ls ./projects/</span>
-          </div>
-          <h2 id="projects-heading" class="visually-hidden">Projects</h2>
-          <div class="output">
-            <div class="projects-grid">
-              <article class="project-card">
-                <figure class="project-card__image-container">
-                  <img
-                    src="assets/images/uspacy.webp"
-                    alt="Uspacy platform interface showing communication and collaboration tools"
-                    class="project-card__image"
-                    loading="lazy"
-                  />
-                </figure>
-                <div class="project-card__content">
-                  <h3 class="project-card__title">> uspacy/</h3>
-                  <p class="dim project-card__desc">
-                    All-in-one business platform - CRM, chat, tasks, telephony.
-                    I built 5 microservices for this using Module Federation.
-                    Served 100K+ users.
-                  </p>
-                  <p class="project-card__tech">
-                    [React, TypeScript, Redux, MUI, Module Federation]
-                  </p>
-                  <nav class="project-card__links" aria-label="Project links">
-                    <a
-                      href="https://uspacy.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="project-link"
-                      >[Live →]</a
-                    >
-                  </nav>
-                </div>
-              </article>
-
-              <article class="project-card">
-                <figure class="project-card__image-container">
-                  <img
-                    src="assets/images/cvbuildai.png"
-                    alt="AI Resume Builder interface with resume editing tools"
-                    class="project-card__image"
-                    loading="lazy"
-                  />
-                </figure>
-                <div class="project-card__content">
-                  <h3 class="project-card__title">> ai-resume-builder/</h3>
-                  <p class="dim project-card__desc">
-                    AI-powered resume builder. Feed it your work history, get
-                    smart content suggestions, export to PDF. Yes, I used it to
-                    build my own CV at some point.
-                  </p>
-                  <p class="project-card__tech">
-                    [Next.js, TypeScript, Generative AI, Tailwind, PostgreSQL]
-                  </p>
-                  <nav class="project-card__links" aria-label="Project links">
-                    <a
-                      href="https://cvbuildai.vercel.app/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="project-link"
-                      >[Live →]</a
-                    >
-                    <a
-                      href="https://github.com/Rydl3r/cvbuildai"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="project-link"
-                      >[Source →]</a
-                    >
-                  </nav>
-                </div>
-              </article>
-
-              <article class="project-card">
-                <figure class="project-card__image-container">
-                  <img
-                    src="assets/images/feodal.png"
-                    alt="Feodal agricultural platform showing land visualization maps"
-                    class="project-card__image"
-                    loading="lazy"
-                  />
-                </figure>
-                <div class="project-card__content">
-                  <h3 class="project-card__title">> feodal/</h3>
-                  <p class="dim project-card__desc">
-                    Agricultural land management platform with automated audits,
-                    geospatial visualization, and real-time monitoring for
-                    Ukrainian farmers.
-                  </p>
-                  <p class="project-card__tech">
-                    [React, Mapbox, Firebase, Tailwind]
-                  </p>
-                  <nav class="project-card__links" aria-label="Project links">
-                    <a
-                      href="https://feodal.online/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="project-link"
-                      >[Live →]</a
-                    >
-                  </nav>
-                </div>
-              </article>
-
-              <article class="project-card">
-                <figure class="project-card__image-container">
-                  <img
-                    src="assets/images/rapira.png"
-                    alt="Rapira e-commerce website for nail service tools"
-                    class="project-card__image"
-                    loading="lazy"
-                  />
-                </figure>
-                <div class="project-card__content">
-                  <h3 class="project-card__title">> rapira/</h3>
-                  <p class="dim project-card__desc">
-                    E-commerce platform for professional nail tools and
-                    accessories. Full product catalog, slick UI, modern
-                    practices. Built to help a local business go global.
-                  </p>
-                  <p class="project-card__tech">
-                    [React, TypeScript, Firebase, Chakra UI]
-                  </p>
-                  <nav class="project-card__links" aria-label="Project links">
-                    <a
-                      href="https://rapira.com.ua/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="project-link"
-                      >[Live →]</a
-                    >
-                  </nav>
-                </div>
-              </article>
-
-              <article class="project-card">
-                <figure class="project-card__image-container">
-                  <img
-                    src="assets/images/imdb.jpg"
-                    alt="IMDB Watchlist picker interface showing movie recommendations"
-                    class="project-card__image"
-                    loading="lazy"
-                  />
-                </figure>
-                <div class="project-card__content">
-                  <h3 class="project-card__title">> imdb-watchlist-picker/</h3>
-                  <p class="dim project-card__desc">
-                    Can't decide what to watch? This pulls from your IMDB
-                    watchlist and picks something for you. Decision fatigue,
-                    solved.
-                  </p>
-                  <p class="project-card__tech">[HTML, CSS, JS, IMDB API]</p>
-                  <nav class="project-card__links" aria-label="Project links">
-                    <a
-                      href="https://github.com/Rydl3r/imdb-picker"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="project-link"
-                      >[Source →]</a
-                    >
-                  </nav>
-                </div>
-              </article>
-
-              <article class="project-card">
-                <figure class="project-card__image-container">
-                  <img
-                    src="assets/images/slop-blocker.jpg"
-                    alt="Slop blocker that helps with time management and focus by blocking distracting websites"
-                    class="project-card__image"
-                    loading="lazy"
-                  />
-                </figure>
-                <div class="project-card__content">
-                  <h3 class="project-card__title">> slop-blocker/</h3>
-                  <p class="dim project-card__desc">
-                    Browser extension that blocks distracting websites. Because
-                    sometimes willpower needs a little help.
-                  </p>
-                  <p class="project-card__tech">[HTML, CSS, JS]</p>
-                  <nav class="project-card__links" aria-label="Project links">
-                    <a
-                      href="https://github.com/Rydl3r/slop-blocker"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="project-link"
-                      >[Source →]</a
-                    >
-                  </nav>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section" aria-labelledby="contact-heading">
-          <div class="line">
-            <span class="prompt" aria-hidden="true">ivan@dev:~$</span>
-            <span class="command"> contact --init</span>
-          </div>
-          <h2 id="contact-heading" class="visually-hidden">Contact</h2>
-          <div class="output">
-            <p class="line">Let's build something together.</p>
-            <p class="line dim">
-              Open to interesting projects, good conversations about frontend
-              architecture,<br />or heated debates about whether CSS-in-JS was a
-              mistake.
+        <!-- Main content -->
+        <main class="content" id="main-content" tabindex="-1">
+          <section id="about" class="panel about-panel" aria-labelledby="about-heading">
+            <h2 id="about-heading">
+              <span aria-hidden="true">✨ </span>About Me<span aria-hidden="true"> ✨</span>
+            </h2>
+            <img class="portrait" src="assets/images/profile.jpeg" alt="Portrait of Ivan Mukoied" />
+            <p>
+              Hi and welcome to my corner of the World Wide Web!!! I'm Ivan, a Senior Frontend
+              Developer from Warsaw, currently at Nearmap. I've been making websites for over five
+              years and I still enjoy it, mostly because the job is never really done. I care about
+              the details people only notice when they're missing: fast pages, readable text, and
+              buttons that still work when you use a keyboard.
             </p>
-            <address>
-              <a href="mailto:1rydler@gmail.com" class="contact-link"
-                >EMAIL: 1rydler@gmail.com</a
-              ><br />
-              <a
-                href="https://github.com/Rydl3r"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="contact-link"
-                >GITHUB: github.com/Rydl3r</a
-              ><br />
-              <a
-                href="https://www.linkedin.com/in/rydler/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="contact-link"
-                >LINKEDIN: linkedin.com/in/rydler</a
-              >
-            </address>
-          </div>
-        </section>
+            <p>
+              My hobbies include: centering divs, arguing about CSS-in-JS, and writing chiptunes
+              for my own homepage (press ▶ in the sidebar). <span aria-hidden="true">😎</span>
+            </p>
+            <div class="fortune comic">
+              <h3 class="fortune-title">
+                <span aria-hidden="true">🥠 </span>Webmaster's Fortune Cookie
+              </h3>
+              <p class="fortune-text" id="fortune-text" aria-live="polite">
+                Today's lucky z-index: 9999.
+              </p>
+              <button type="button" class="fortune-button" id="fortune-button">[ Crack another ]</button>
+            </div>
+          </section>
 
-        <!-- Footer / Interactive Terminal -->
-        <footer class="footer" id="terminal-footer">
-          <div class="line terminal-input-line">
-            <span class="prompt" aria-hidden="true">ivan@dev:~$</span>
-            <input
-              type="text"
-              class="terminal-input"
-              id="terminal-input"
-              placeholder="Try typing something... 🤫"
-              aria-label="Interactive terminal input"
-              autocomplete="off"
-              spellcheck="false"
-            />
+          <!-- Everything below the sidebar runs full width -->
+          <div class="panel content-panel">
+            <section id="jobs" aria-labelledby="jobs-heading">
+              <h2 id="jobs-heading"><span aria-hidden="true">💼 </span>My Jobs</h2>
+              <div class="jobs">
+                <!-- Looks like a table header; screen readers get each job as its own article -->
+                <div class="jobs-head" aria-hidden="true">
+                  <span>When</span>
+                  <span>Where</span>
+                  <span>What I Did</span>
+                </div>
+                <ol class="jobs-list">
+                  <li>
+                    <article class="job">
+                      <p class="job-when"><time datetime="2026-06">Jun 2026</time> – Present <span class="new-badge">NOW!</span></p>
+                      <div class="job-where">
+                        <h3 class="job-company">Nearmap</h3>
+                        <p class="job-title">Senior Frontend Developer</p>
+                      </div>
+                      <p class="job-what">
+                        Building nearmap.com, the global Next.js website for Nearmap's aerial imagery and AI products, where marketing teams on three continents build pages daily through a headless CMS. Led the GitLab → GitHub Actions migration and the Next.js 14 → 16 upgrade, both with zero downtime, cut client-side JavaScript by ~20%, and set up the team's tech-debt process.
+                      </p>
+                    </article>
+                  </li>
+                  <li>
+                    <article class="job">
+                      <p class="job-when"><time datetime="2025-08">Aug 2025</time> – <time datetime="2026-06">Jun 2026</time></p>
+                      <div class="job-where">
+                        <h3 class="job-company">HumanSpark</h3>
+                        <p class="job-title">Senior Frontend Developer</p>
+                      </div>
+                      <p class="job-what">
+                        Frontend for a high-traffic gaming platform with an unusually diverse audience: every screen size, device and network you can think of. Pixel-perfect Angular layouts, responsive design, asset optimization, and catching the weird edge cases before users do.
+                      </p>
+                    </article>
+                  </li>
+                  <li>
+                    <article class="job">
+                      <p class="job-when"><time datetime="2024-04">Apr 2024</time> – <time datetime="2025-08">Aug 2025</time></p>
+                      <div class="job-where">
+                        <h3 class="job-company">GlobalLogic</h3>
+                        <p class="job-title">Middle Frontend Developer</p>
+                      </div>
+                      <p class="job-what">
+                        Worked on an accounts-payable automation platform that 550,000+ businesses rely on to process millions in transactions daily. Migrated critical payment flows from a legacy JSP/Backbone/Marionette stack to React, took cross-browser compatibility from broken to solid, and built out test coverage with Jest and Cypress.
+                      </p>
+                    </article>
+                  </li>
+                  <li>
+                    <article class="job">
+                      <p class="job-when"><time datetime="2022-09">Sep 2022</time> – <time datetime="2024-04">Apr 2024</time></p>
+                      <div class="job-where">
+                        <h3 class="job-company">Uspacy</h3>
+                        <p class="job-title">Middle Frontend Developer</p>
+                      </div>
+                      <p class="job-what">
+                        Built 5+ features of a platform used by 100K+ people, each as an independently deployable Module Federation microservice that still had to feel like one seamless product. Integrated third-party telephony and kept test coverage above 90%.
+                      </p>
+                    </article>
+                  </li>
+                  <li>
+                    <article class="job">
+                      <p class="job-when"><time datetime="2022-01">Jan 2022</time> – <time datetime="2022-09">Sep 2022</time></p>
+                      <div class="job-where">
+                        <h3 class="job-company">Fast&amp;Curious</h3>
+                        <p class="job-title">Junior Frontend Developer</p>
+                      </div>
+                      <p class="job-what">
+                        Built the frontend for Feodal and contributed to Re:Create, a project rebuilding war-affected Ukrainian cities. Moved the whole codebase from class components to functional React along the way.
+                      </p>
+                    </article>
+                  </li>
+                  <li>
+                    <article class="job">
+                      <p class="job-when"><time datetime="2021-01">Jan 2021</time> – <time datetime="2022-01">Jan 2022</time></p>
+                      <div class="job-where">
+                        <h3 class="job-company">Upwork</h3>
+                        <p class="job-title">Freelance Website Developer</p>
+                      </div>
+                      <p class="job-what">
+                        20+ projects for international clients: landing pages, React apps and small full-stack builds. Finished with a 100% client satisfaction rate and learned that clear communication matters as much as the code. Also where I got serious about English, one of the better investments of my career.
+                      </p>
+                    </article>
+                  </li>
+                </ol>
+              </div>
+            </section>
+
+            <hr class="rainbow" />
+
+            <section id="projects" aria-labelledby="projects-heading">
+              <h2 id="projects-heading">
+                <span aria-hidden="true">🚀 </span>Kool Projects
+                <span class="new-badge" aria-hidden="true">NEW!</span>
+              </h2>
+              <ul class="project-list">
+                <li>
+                  <article class="project">
+                    <h3 class="project-name">Nearmap</h3>
+                    <figure class="browser">
+                      <div class="browser-bar" aria-hidden="true">
+                        <span class="browser-button">◀</span>
+                        <span class="browser-button">▶</span>
+                        <span class="browser-url">https://nearmap.com/products/imagery</span>
+                      </div>
+                      <img src="assets/images/nearmap.webp" alt="Screenshot of Nearmap" loading="lazy" width="1200" height="750" />
+                    </figure>
+                    <p>
+                      Nearmap's global website for its aerial imagery and AI products, serving customers across the US, Australia and New Zealand.
+                    </p>
+                    <div class="project-tech">
+                      <span class="project-tech-label" id="tech-nearmap">Made with:</span>
+                      <ul aria-labelledby="tech-nearmap">
+                        <li>Next.js</li>
+                        <li>React</li>
+                        <li>TypeScript</li>
+                        <li>Material UI</li>
+                        <li>Storyblok</li>
+                        <li>GitHub Actions</li>
+                        <li>AWS</li>
+                      </ul>
+                    </div>
+                    <p class="project-links">
+                      <a href="https://www.nearmap.com/" target="_blank" rel="noopener" aria-label="Click here to visit Nearmap (opens in a new tab)">[ CLICK HERE TO VISIT ]</a>
+                    </p>
+                  </article>
+                </li>
+                <li>
+                  <article class="project">
+                    <h3 class="project-name">Uspacy</h3>
+                    <figure class="browser">
+                      <div class="browser-bar" aria-hidden="true">
+                        <span class="browser-button">◀</span>
+                        <span class="browser-button">▶</span>
+                        <span class="browser-url">https://uspacy.com</span>
+                      </div>
+                      <img src="assets/images/uspacy.webp" alt="Screenshot of Uspacy" loading="lazy" width="1200" height="750" />
+                    </figure>
+                    <p>
+                      An all-in-one workspace for teams: chat, CRM, tasks and telephony in a single app.
+                    </p>
+                    <div class="project-tech">
+                      <span class="project-tech-label" id="tech-uspacy">Made with:</span>
+                      <ul aria-labelledby="tech-uspacy">
+                        <li>React</li>
+                        <li>TypeScript</li>
+                        <li>Redux</li>
+                        <li>Material UI</li>
+                        <li>Module Federation</li>
+                      </ul>
+                    </div>
+                    <p class="project-links">
+                      <a href="https://uspacy.com/" target="_blank" rel="noopener" aria-label="Click here to visit Uspacy (opens in a new tab)">[ CLICK HERE TO VISIT ]</a>
+                    </p>
+                  </article>
+                </li>
+                <li>
+                  <article class="project">
+                    <h3 class="project-name">Feodal</h3>
+                    <figure class="browser">
+                      <div class="browser-bar" aria-hidden="true">
+                        <span class="browser-button">◀</span>
+                        <span class="browser-button">▶</span>
+                        <span class="browser-url">https://feodal.online/en</span>
+                      </div>
+                      <img src="assets/images/feodal.webp" alt="Screenshot of Feodal" loading="lazy" width="1200" height="750" />
+                    </figure>
+                    <p>
+                      A Ukrainian agritech platform for managing farmland: field maps, land audits and real-time monitoring for farmers, local communities and landowners.
+                    </p>
+                    <div class="project-tech">
+                      <span class="project-tech-label" id="tech-feodal">Made with:</span>
+                      <ul aria-labelledby="tech-feodal">
+                        <li>React</li>
+                        <li>TypeScript</li>
+                        <li>Mapbox</li>
+                        <li>Firebase</li>
+                        <li>Tailwind CSS</li>
+                      </ul>
+                    </div>
+                    <p class="project-links">
+                      <a href="https://feodal.online/en" target="_blank" rel="noopener" aria-label="Click here to visit Feodal (opens in a new tab)">[ CLICK HERE TO VISIT ]</a>
+                    </p>
+                  </article>
+                </li>
+                <li>
+                  <article class="project">
+                    <h3 class="project-name">TrackFin</h3>
+                    <figure class="browser">
+                      <div class="browser-bar" aria-hidden="true">
+                        <span class="browser-button">◀</span>
+                        <span class="browser-button">▶</span>
+                        <span class="browser-url">https://trackfin-panel.vercel.app/statistics</span>
+                      </div>
+                      <img src="assets/images/trackfin.webp" alt="Screenshot of TrackFin" loading="lazy" width="1200" height="750" />
+                    </figure>
+                    <p>
+                      A personal finance tracker in two halves: a Telegram bot for logging expenses in a few taps, and a web panel with charts, multi-currency totals and an AI read of your spending habits.
+                    </p>
+                    <div class="project-tech">
+                      <span class="project-tech-label" id="tech-trackfin">Made with:</span>
+                      <ul aria-labelledby="tech-trackfin">
+                        <li>React</li>
+                        <li>TypeScript</li>
+                        <li>Chakra UI</li>
+                        <li>Tanstack Query</li>
+                        <li>Recharts</li>
+                        <li>Firebase</li>
+                        <li>Telegraf</li>
+                        <li>Vercel Functions</li>
+                        <li>OpenRouter</li>
+                        <li>Vitest</li>
+                      </ul>
+                    </div>
+                    <p class="project-note">Private project. The screenshot uses made-up demo data.</p>
+                  </article>
+                </li>
+                <li>
+                  <article class="project">
+                    <h3 class="project-name">CV Build AI</h3>
+                    <figure class="browser">
+                      <div class="browser-bar" aria-hidden="true">
+                        <span class="browser-button">◀</span>
+                        <span class="browser-button">▶</span>
+                        <span class="browser-url">https://cvbuildai.vercel.app</span>
+                      </div>
+                      <img src="assets/images/cvbuildai.webp" alt="Screenshot of CV Build AI" loading="lazy" width="1200" height="750" />
+                    </figure>
+                    <p>
+                      A résumé builder where Google Gemini helps write the content. Sign in with Google, edit with a live preview, pick a theme colour, then share a link or export a PDF.
+                    </p>
+                    <div class="project-tech">
+                      <span class="project-tech-label" id="tech-cv-build-ai">Made with:</span>
+                      <ul aria-labelledby="tech-cv-build-ai">
+                        <li>Next.js</li>
+                        <li>TypeScript</li>
+                        <li>Hono</li>
+                        <li>Tanstack Query</li>
+                        <li>Drizzle ORM</li>
+                        <li>Vercel Postgres</li>
+                        <li>Kinde Auth</li>
+                        <li>Google Gemini</li>
+                        <li>Tailwind CSS</li>
+                        <li>shadcn/ui</li>
+                      </ul>
+                    </div>
+                    <p class="project-links">
+                      <a href="https://cvbuildai.vercel.app/" target="_blank" rel="noopener" aria-label="Click here to visit CV Build AI (opens in a new tab)">[ CLICK HERE TO VISIT ]</a>
+                      <a href="https://github.com/Rydl3r/cvbuildai" target="_blank" rel="noopener" aria-label="Source code for CV Build AI (opens in a new tab)">[ SOURCE CODE ]</a>
+                    </p>
+                  </article>
+                </li>
+                <li>
+                  <article class="project">
+                    <h3 class="project-name">Watchlist Picker</h3>
+                    <figure class="browser">
+                      <div class="browser-bar" aria-hidden="true">
+                        <span class="browser-button">◀</span>
+                        <span class="browser-button">▶</span>
+                        <span class="browser-url">chrome-extension://watchlist-picker/popup.html</span>
+                      </div>
+                      <img src="assets/images/imdb.webp" alt="Screenshot of Watchlist Picker" loading="lazy" width="1200" height="750" />
+                    </figure>
+                    <p>
+                      A Chrome extension that picks a random movie, show or game from your IMDb watchlist, with filters for genre, length, rating, language and more. It reads the watchlist straight from IMDb's GraphQL API, so there's nothing to export.
+                    </p>
+                    <div class="project-tech">
+                      <span class="project-tech-label" id="tech-watchlist-picker">Made with:</span>
+                      <ul aria-labelledby="tech-watchlist-picker">
+                        <li>TypeScript</li>
+                        <li>Chrome Extensions (MV3)</li>
+                        <li>GraphQL</li>
+                        <li>esbuild</li>
+                      </ul>
+                    </div>
+                    <p class="project-links">
+                      <a href="https://github.com/Rydl3r/imdb-picker" target="_blank" rel="noopener" aria-label="Source code for Watchlist Picker (opens in a new tab)">[ SOURCE CODE ]</a>
+                    </p>
+                  </article>
+                </li>
+                <li>
+                  <article class="project">
+                    <h3 class="project-name">Slop Blocker</h3>
+                    <figure class="browser">
+                      <div class="browser-bar" aria-hidden="true">
+                        <span class="browser-button">◀</span>
+                        <span class="browser-button">▶</span>
+                        <span class="browser-url">chrome-extension://slop-blocker/blocked.html</span>
+                      </div>
+                      <img src="assets/images/slop-blocker.webp" alt="Screenshot of Slop Blocker" loading="lazy" width="1200" height="750" />
+                    </figure>
+                    <p>
+                      A Chrome extension that blocks distracting sites with domain, wildcard or regex rules on optional schedules, then shows streaks, stats and a motivational interruption page. Everything stays on your device.
+                    </p>
+                    <div class="project-tech">
+                      <span class="project-tech-label" id="tech-slop-blocker">Made with:</span>
+                      <ul aria-labelledby="tech-slop-blocker">
+                        <li>JavaScript</li>
+                        <li>Chrome Extensions (MV3)</li>
+                        <li>declarativeNetRequest</li>
+                      </ul>
+                    </div>
+                    <p class="project-links">
+                      <a href="https://github.com/Rydl3r/slop-blocker" target="_blank" rel="noopener" aria-label="Source code for Slop Blocker (opens in a new tab)">[ SOURCE CODE ]</a>
+                    </p>
+                  </article>
+                </li>
+                <li>
+                  <article class="project">
+                    <h3 class="project-name">ZenTube</h3>
+                    <figure class="browser">
+                      <div class="browser-bar" aria-hidden="true">
+                        <span class="browser-button">◀</span>
+                        <span class="browser-button">▶</span>
+                        <span class="browser-url">https://youtube.com/watch?v=OEV8gMkCHXQ</span>
+                      </div>
+                      <img src="assets/images/zentube.webp" alt="Screenshot of ZenTube" loading="lazy" width="1200" height="750" />
+                    </figure>
+                    <p>
+                      A browser extension that strips YouTube down to the video: no recommendations, Shorts, comments, end screens or autoplay, each toggle switchable from a small popup.
+                    </p>
+                    <div class="project-tech">
+                      <span class="project-tech-label" id="tech-zentube">Made with:</span>
+                      <ul aria-labelledby="tech-zentube">
+                        <li>JavaScript</li>
+                        <li>Chrome Extensions (MV3)</li>
+                        <li>CSS</li>
+                      </ul>
+                    </div>
+                    <p class="project-links">
+                      <a href="https://github.com/Rydl3r/zentube" target="_blank" rel="noopener" aria-label="Source code for ZenTube (opens in a new tab)">[ SOURCE CODE ]</a>
+                    </p>
+                  </article>
+                </li>
+                <li>
+                  <article class="project">
+                    <h3 class="project-name">Rapira</h3>
+                    <figure class="browser">
+                      <div class="browser-bar" aria-hidden="true">
+                        <span class="browser-button">◀</span>
+                        <span class="browser-button">▶</span>
+                        <span class="browser-url">https://rapira.com.ua</span>
+                      </div>
+                      <img src="assets/images/rapira.webp" alt="Screenshot of Rapira" loading="lazy" width="1200" height="750" />
+                    </figure>
+                    <p>
+                      An online catalogue for a Ukrainian maker of professional manicure tools, with its own admin panel for managing categories and products.
+                    </p>
+                    <div class="project-tech">
+                      <span class="project-tech-label" id="tech-rapira">Made with:</span>
+                      <ul aria-labelledby="tech-rapira">
+                        <li>React</li>
+                        <li>TypeScript</li>
+                        <li>Vite</li>
+                        <li>Chakra UI</li>
+                        <li>Firebase</li>
+                        <li>i18next</li>
+                        <li>Framer Motion</li>
+                      </ul>
+                    </div>
+                    <p class="project-links">
+                      <a href="https://rapira.com.ua/" target="_blank" rel="noopener" aria-label="Click here to visit Rapira (opens in a new tab)">[ CLICK HERE TO VISIT ]</a>
+                    </p>
+                  </article>
+                </li>
+              </ul>
+            </section>
+
+            <aside class="prize-promo" aria-label="Prize announcement">
+              <span class="promo-label">ADVERTISEMENT</span>
+              <a class="promo" href="mailto:1rydler@gmail.com?subject=I%20am%20the%201%2C000%2C000th%20visitor!">
+                <span class="promo-stars" aria-hidden="true">★★★</span>
+                <span class="promo-text">
+                  <span class="promo-headline">CONGRATULATIONS!!!</span>
+                  You are the 1,000,000th visitor! <span class="blink">Click to claim your prize!</span>
+                </span>
+                <span class="promo-stars" aria-hidden="true">★★★</span>
+              </a>
+            </aside>
+
+            <section id="skills" aria-labelledby="skills-heading">
+              <h2 id="skills-heading"><span aria-hidden="true">🧠 </span>My Skillz</h2>
+              <div class="window">
+                <div class="window-titlebar" aria-hidden="true">
+                  <span>📁 C:\SKILLZ</span>
+                  <span class="window-controls">
+                    <span>_</span><span>□</span><span>×</span>
+                  </span>
+                </div>
+                <div class="window-body">
+                  <div class="skill-group">
+                    <h3 class="skill-folder">
+                      <span aria-hidden="true">📂 </span>Core <small>(10 files)</small>
+                    </h3>
+                    <ul class="skill-tags">
+                      <li>React</li>
+                      <li>Next.js</li>
+                      <li>TypeScript</li>
+                      <li>JavaScript</li>
+                      <li>Angular</li>
+                      <li>RxJS</li>
+                      <li>Vue.js</li>
+                      <li>Astro</li>
+                      <li>HTML</li>
+                      <li>CSS</li>
+                    </ul>
+                  </div>
+                  <div class="skill-group">
+                    <h3 class="skill-folder">
+                      <span aria-hidden="true">📂 </span>State &amp; Data <small>(7 files)</small>
+                    </h3>
+                    <ul class="skill-tags">
+                      <li>Redux</li>
+                      <li>Tanstack Query</li>
+                      <li>Zustand</li>
+                      <li>Context API</li>
+                      <li>SWR</li>
+                      <li>GraphQL</li>
+                      <li>REST</li>
+                    </ul>
+                  </div>
+                  <div class="skill-group">
+                    <h3 class="skill-folder">
+                      <span aria-hidden="true">📂 </span>Styling &amp; UI <small>(10 files)</small>
+                    </h3>
+                    <ul class="skill-tags">
+                      <li>Tailwind CSS</li>
+                      <li>SCSS</li>
+                      <li>CSS Modules</li>
+                      <li>Material UI</li>
+                      <li>Angular Material</li>
+                      <li>Chakra UI</li>
+                      <li>shadcn/ui</li>
+                      <li>Styled Components</li>
+                      <li>Framer Motion</li>
+                      <li>Figma</li>
+                    </ul>
+                  </div>
+                  <div class="skill-group">
+                    <h3 class="skill-folder">
+                      <span aria-hidden="true">📂 </span>Architecture <small>(7 files)</small>
+                    </h3>
+                    <ul class="skill-tags">
+                      <li>Module Federation</li>
+                      <li>Micro-frontends</li>
+                      <li>Headless CMS (Storyblok)</li>
+                      <li>Monorepos (Turborepo, Nx)</li>
+                      <li>i18n (next-intl)</li>
+                      <li>Mapbox / GIS</li>
+                      <li>Legacy migrations (Backbone, Marionette, JSP)</li>
+                    </ul>
+                  </div>
+                  <div class="skill-group">
+                    <h3 class="skill-folder">
+                      <span aria-hidden="true">📂 </span>Testing &amp; Quality <small>(12 files)</small>
+                    </h3>
+                    <ul class="skill-tags">
+                      <li>Jest</li>
+                      <li>Vitest</li>
+                      <li>React Testing Library</li>
+                      <li>Cypress</li>
+                      <li>Playwright</li>
+                      <li>MSW</li>
+                      <li>Storybook</li>
+                      <li>Sentry</li>
+                      <li>Lighthouse / Web Vitals</li>
+                      <li>Accessibility (WCAG)</li>
+                      <li>SEO</li>
+                      <li>Cross-browser testing</li>
+                    </ul>
+                  </div>
+                  <div class="skill-group">
+                    <h3 class="skill-folder">
+                      <span aria-hidden="true">📂 </span>Build &amp; DevOps <small>(8 files)</small>
+                    </h3>
+                    <ul class="skill-tags">
+                      <li>Vite</li>
+                      <li>Webpack</li>
+                      <li>Git</li>
+                      <li>GitHub Actions</li>
+                      <li>GitLab CI</li>
+                      <li>AWS</li>
+                      <li>Docker</li>
+                      <li>Vercel</li>
+                    </ul>
+                  </div>
+                  <div class="skill-group">
+                    <h3 class="skill-folder">
+                      <span aria-hidden="true">📂 </span>Backend <small>(4 files)</small>
+                    </h3>
+                    <ul class="skill-tags">
+                      <li>Node.js</li>
+                      <li>Express</li>
+                      <li>PostgreSQL</li>
+                      <li>Firebase</li>
+                    </ul>
+                  </div>
+                  <div class="skill-group">
+                    <h3 class="skill-folder">
+                      <span aria-hidden="true">📂 </span>AI-Assisted Dev <small>(4 files)</small>
+                    </h3>
+                    <ul class="skill-tags">
+                      <li>Claude Code</li>
+                      <li>Cursor</li>
+                      <li>GitHub Copilot</li>
+                      <li>OpenAI &amp; Anthropic APIs</li>
+                    </ul>
+                  </div>
+                </div>
+                <p class="window-statusbar">62 object(s) · 8 folders · 1.44 MB free</p>
+              </div>
+            </section>
+
+            <hr class="rainbow" />
+
+            <section id="guestbook" class="guestbook comic" aria-labelledby="guestbook-heading">
+              <h2 id="guestbook-heading"><span aria-hidden="true">📖 </span>Sign My Guestbook!!</h2>
+              <form id="guestbook-form">
+                <label class="visually-hidden" for="guestbook-name">Your name</label>
+                <input id="guestbook-name" placeholder="Your name" maxlength="40" autocomplete="name" required />
+                <label class="visually-hidden" for="guestbook-message">Your message</label>
+                <textarea
+                  id="guestbook-message"
+                  rows="3"
+                  placeholder="Leave a message :)"
+                  maxlength="240"
+                  required
+                ></textarea>
+                <button type="submit">Sign it!</button>
+              </form>
+              <p class="guestbook-note">
+                (Saved only in your browser, just like in 1999. For a real reply:
+                <a href="mailto:1rydler@gmail.com">e-mail me</a>)
+              </p>
+              <h3 class="visually-hidden">Guestbook entries</h3>
+              <!-- Visitors' own entries are added above these by scripts/main.js -->
+              <ul class="entries" id="guestbook-entries" aria-live="polite">
+                <li class="entry"><b>Clippy</b> wrote: It looks like you're reading a homepage. Would you like help with that?</li>
+                <li class="entry"><b>xX_w3bmaster_Xx</b> wrote: cool site!!! link exchange??</li>
+                <li class="entry"><b>Your future self</b> wrote: write the tests now. trust me.</li>
+                <li class="entry"><b>Tamagotchi</b> wrote: feed me</li>
+              </ul>
+            </section>
           </div>
-          <div
-            id="terminal-output"
-            class="terminal-response"
-            role="log"
-            aria-live="polite"
-            aria-atomic="true"
-          ></div>
-        </footer>
+        </main>
       </div>
+
+      <!-- Footer -->
+      <footer>
+        <div class="badges" aria-hidden="true">
+          <span class="badge-green">BEST VIEWED IN ANY BROWSER</span>
+          <span class="badge-yellow">MADE WITH NOTEPAD (NOT)</span>
+          <span class="badge-red">NO JQUERY INSIDE</span>
+          <span class="badge-forest">Y2K COMPLIANT</span>
+          <span class="badge-purple">REACT POWERED (SPIRITUALLY)</span>
+          <span class="badge-cheat">↑↑↓↓←→←→BA</span>
+        </div>
+
+        <nav class="webring" aria-label="Webring and contact">
+          <span aria-hidden="true">&lt;&lt; </span>
+          <a href="https://github.com/Rydl3r" target="_blank" rel="noopener">
+            Prev<span class="visually-hidden">: my GitHub (opens in a new tab)</span>
+          </a>
+          <span aria-hidden="true"> | 🕸 Frontend Devs Webring 🕸 | </span>
+          <a href="https://www.linkedin.com/in/rydler/" target="_blank" rel="noopener">
+            Next<span class="visually-hidden">: my LinkedIn (opens in a new tab)</span>
+          </a>
+          <span aria-hidden="true"> &gt;&gt;</span>
+          <br />
+          <span class="webring-details">
+            Email: <a href="mailto:1rydler@gmail.com">1rydler@gmail.com</a>
+            · Last updated: <time id="last-updated" datetime="2026-10">October 2026</time>
+          </span>
+        </nav>
+
+        <p class="copyright">
+          © 1999–<span id="current-year">2026</span> Ivan Mukoied. Don't steal my graphics!!!
+        </p>
+      </footer>
     </div>
+
+    <p class="cheat-toast" id="cheat-toast" role="status"></p>
 
     <!-- Scripts -->
     <script src="scripts/main.js"></script>
+    <script src="scripts/midi-player.js"></script>
   </body>
 </html>
